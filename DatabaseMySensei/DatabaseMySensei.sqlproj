@@ -68,4 +68,7 @@
   <ItemGroup>
     <PostDeploy Include="Script.PostDeployment1.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="DatabaseMySensei.publish.xml" />
+  </ItemGroup>
 </Project>
