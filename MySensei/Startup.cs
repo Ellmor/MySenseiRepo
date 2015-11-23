@@ -9,7 +9,7 @@ namespace MySensei
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
-            //comment 2
+            //comment 3
         }
     }
 }
