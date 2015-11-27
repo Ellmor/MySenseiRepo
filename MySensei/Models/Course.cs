@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.Spatial;
+
 namespace MySensei.Models
 {
     public class Course
@@ -10,7 +11,8 @@ namespace MySensei.Models
         public Course()
         {
             Tags = new HashSet<Tag>();
-            Users = new HashSet<User>();
+            Participants = new HashSet<User>();
+            Owners = new HashSet<User>();
         }
 
         [Key]
@@ -33,6 +35,7 @@ namespace MySensei.Models
 
         public virtual ICollection<Tag> Tags { get; set; }
 
-        public virtual ICollection<User> Users { get; set; }
+        public virtual ICollection<User> Participants { get; set; }
+        public virtual ICollection<User> Owners { get; set; }
     }
 }

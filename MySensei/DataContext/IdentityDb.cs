@@ -10,7 +10,7 @@ namespace MySensei.DataContext
     public class IdentityDb : IdentityDbContext<ApplicationUser>
     {
         public IdentityDb()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("IdentityContext", throwIfV1Schema: false)
         {
         }
 
