@@ -77,6 +77,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -197,8 +199,15 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="DataContext\DataDb.cs" />
+    <Compile Include="DataContext\MySenseiMigrations\Configuration.cs" />
+    <Compile Include="Models\Course.cs" />
     <Compile Include="DataContext\IdentityDb.cs" />
+    <Compile Include="DataContext\IdentityMigrations\201511241219487_InitialCreate.cs" />
+    <Compile Include="DataContext\IdentityMigrations\201511241219487_InitialCreate.Designer.cs">
+      <DependentUpon>201511241219487_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\IdentityMigrations\Configuration.cs" />
+    <Compile Include="DataContext\MySenseiDb.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -207,6 +216,8 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Models\Tag.cs" />
+    <Compile Include="Models\User.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
@@ -284,6 +295,14 @@
       <Project>{4d041a55-ca72-40a9-8392-c4942d590416}</Project>
       <Name>MySensei.Entities</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DataContext\IdentityMigrations\201511241219487_InitialCreate.resx">
+      <DependentUpon>201511241219487_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
