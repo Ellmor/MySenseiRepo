@@ -2,6 +2,7 @@ using System;
 using System.Data.Entity;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using MySensei.Models;
 
 namespace MySensei.DataContext
 {
@@ -22,7 +23,7 @@ namespace MySensei.DataContext
         {
             modelBuilder.Entity<User>()
                      .HasMany(u => u.OfferedCourses)
-                     .WithMany(c => c.Users)
+                     .WithMany(c => c.Owners)
                      .Map(uc =>
                      {
                          uc.MapLeftKey("UserId");
@@ -32,7 +33,7 @@ namespace MySensei.DataContext
 
             modelBuilder.Entity<User>()
                      .HasMany(u => u.TakenCourses)
-                     .WithMany(c => c.Users)
+                     .WithMany(c => c.Participants)
                      .Map(uc =>
                      {
                          uc.MapLeftKey("UserId");
@@ -49,6 +50,8 @@ namespace MySensei.DataContext
                          ct.MapRightKey("TagId");
                          ct.ToTable("CourseTag");
                      });
+
+            base.OnModelCreating(modelBuilder);
         }
     }
 }
