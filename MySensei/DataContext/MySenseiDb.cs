@@ -2,7 +2,7 @@ using System;
 using System.Data.Entity;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
-using MySensei.Models;
+using MySensei.Entities;
 
 namespace MySensei.DataContext
 {
