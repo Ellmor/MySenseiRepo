@@ -282,6 +282,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -290,12 +291,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MySensei.Entities\MySensei.Entities.csproj">
-      <Project>{4d041a55-ca72-40a9-8392-c4942d590416}</Project>
-      <Name>MySensei.Entities</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="DataContext\IdentityMigrations\201511241219487_InitialCreate.resx">
