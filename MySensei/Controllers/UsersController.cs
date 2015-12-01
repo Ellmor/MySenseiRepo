@@ -37,6 +37,7 @@ namespace MySensei.Controllers
         }
 
         // GET: Users/Create
+        [Authorize]
         public ActionResult Create()
         {
             return View();
@@ -47,6 +48,7 @@ namespace MySensei.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult Create([Bind(Include = "UserId,UserName,FirstName,LastName,Email,Phone,ProfilePicture,Description,AspNetUserId")] User user)
         {
             if (ModelState.IsValid)
