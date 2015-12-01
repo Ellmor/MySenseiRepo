@@ -20,13 +20,7 @@ namespace MySensei.Entities
         public string UserName { get; set; }
 
         [StringLength(100)]
-        public string FirstName { get; set; }
-
-        [StringLength(100)]
-        public string LastName { get; set; }
-
-        [StringLength(100)]
-        public string Email { get; set; }
+        public string Fullname { get; set; }
 
         [StringLength(50)]
         public string Phone { get; set; }
@@ -37,7 +31,7 @@ namespace MySensei.Entities
         [StringLength(255)]
         public string Description { get; set; }
 
-        public int? AspNetUserId { get; set; }
+        public string AspNetUserId { get; set; }
 
         public virtual ICollection<Course> TakenCourses { get; set; }
 
