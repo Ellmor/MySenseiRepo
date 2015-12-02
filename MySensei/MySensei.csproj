@@ -236,6 +236,9 @@
     <Content Include="Content\css\normalize.css" />
     <Content Include="Content\gfx\Billed.jpg" />
     <Content Include="Content\gfx\fb-icon.png" />
+    <Content Include="Content\gfx\home-ca-icon.png" />
+    <Content Include="Content\gfx\home-cc-icon.png" />
+    <Content Include="Content\gfx\home-fc-icon.png" />
     <Content Include="Content\gfx\logo.png" />
     <Content Include="Content\gfx\mobile-menu.png" />
     <Content Include="Content\gfx\pin-icon.png" />

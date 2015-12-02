@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scallable=no">
-    <title>@ViewBag.Title - MySensei</title>
+    <title>MySensei</title>
     <link href="@Url.Content("~/Content/css/normalize.css")" rel="stylesheet" type="text/css" />
     <link href="@Url.Content("~/Content/css/common.css")" rel="stylesheet" type="text/css" />
     <!--[if lt IE 9]>
@@ -49,7 +49,9 @@
             <!-- Header container end -->
         <!-- Header end -->
         <!-- Start of RenderBody -->
-        @RenderBody()
+        <div id="body-container">
+            @RenderBody()
+        </div>
         <!-- End of RenderBody -->
         <footer>
             <div class="foot-content-container">

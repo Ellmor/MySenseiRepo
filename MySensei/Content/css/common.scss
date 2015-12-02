@@ -120,3 +120,66 @@ footer {
     }
 }
 /* Footer Styles End*/
+/* Content Styles Start*/
+#body-container {
+    width: 100%;
+}
+section {
+    width: 100%;
+}
+#home-cta-bg {
+ height: 180px;
+    background: url("/Content/gfx/Billed.jpg") no-repeat;
+    background-position: -300px -280px;
+    color: white;
+    font-size: 1.4em;
+    margin: 0 auto;
+    div {
+        position: relative;
+    top: 26%;
+    left: 25%;
+    }
+}
+button {
+    height: 1.765em;
+    line-height: 1.2em;
+    background: #434da2;
+    color: white;
+    font-family: $dh-font;
+    border: none;
+}
+#home-item-boxes {
+    width: 100%;
+    text-align: center;
+}
+h1 {
+    font-family: $dh-font;
+    font-size: 1.6em;
+    line-height: 1.5em;
+}
+
+h2 {
+    font-size: 1.3em;
+    line-height: 1.1em;
+}
+.home-item-image {
+        width: 100%;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 160px;
+}
+
+#home-item-icon-ca {
+    background-image: url('/Content/gfx/home-ca-icon.png');
+    @extend .home-item-image;
+}
+
+#home-item-icon-fc {
+    background-image: url('/Content/gfx/home-fc-icon.png');
+    @extend .home-item-image;
+}
+#home-item-icon-cc {
+    background-image: url('/Content/gfx/home-cc-icon.png');
+    @extend .home-item-image;
+}
