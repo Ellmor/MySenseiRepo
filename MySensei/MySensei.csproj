@@ -225,6 +225,8 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\font\fingerpaintregular-webfont.svg" />
+    <Content Include="Content\gfx\acc-icon.png" />
     <Content Include="Content\css\common.css">
       <DependentUpon>common.scss</DependentUpon>
     </Content>
@@ -233,7 +235,9 @@
     </Content>
     <Content Include="Content\css\normalize.css" />
     <Content Include="Content\gfx\Billed.jpg" />
-    <Content Include="Content\gfx\logo_i_vector_sort.png" />
+    <Content Include="Content\gfx\logo.png" />
+    <Content Include="Content\gfx\mobile-menu.png" />
+    <Content Include="Content\js\common.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <None Include="Content\css\common.scss" />
@@ -246,7 +250,10 @@
     <Content Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </Content>
-    <Content Include="Content\font\FingerpaintRegular.ttf" />
+    <Content Include="Content\font\fingerpaintregular-webfont.eot" />
+    <Content Include="Content\font\fingerpaintregular-webfont.ttf" />
+    <Content Include="Content\font\fingerpaintregular-webfont.woff" />
+    <Content Include="Content\font\fingerpaintregular-webfont.woff2" />
     <None Include="Properties\PublishProfiles\MySensei.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

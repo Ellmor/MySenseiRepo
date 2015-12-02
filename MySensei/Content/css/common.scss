@@ -1,4 +1,69 @@
 ﻿@import url(https://fonts.googleapis.com/css?family=Roboto);
-
+@font-face {
+    font-family: 'finger_paint';
+    src: url('~/Content/font/fingerpaintregular-webfont.eot');
+    src: url('~/Content/font/fingerpaintregular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('~/Content/font/fingerpaintregular-webfont.woff2') format('woff2'),
+         url('~/Content/font/fingerpaintregular-webfont.woff') format('woff'),
+         url('~/Content/font/fingerpaintregular-webfont.ttf') format('truetype'),
+         url('~/Content/font/fingerpaintregular-webfont.svg#finger_paintregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
 //Initial Variables
 $p-font: Roboto, sans-serif; // paragraph font
+$dh-font: finger_paint, sans-serif; // desktop header font
+
+/* general styles*/
+.clear {clear: both;}
+ul {list-style: none;}
+
+/* Header Styles Begin */
+#root-container {
+    width: 100%;
+}
+header {
+    text-align: center;
+    padding-bottom: 12px;
+    position: relative;
+    div {
+        display: inline-block;
+    }
+}
+#nav-profile{
+    background: url('/Content/gfx/acc-icon.png');
+    width: 45px;
+    height: 45px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#logo{
+    background: url('/Content/gfx/logo.png');
+    width: 275px;
+    height: 45px;
+    background-size: 180px 45px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#mobile-burger{
+    background: url('/Content/gfx/mobile-menu.png');
+    width: 45px;
+    height: 45px;
+    background-repeat: no-repeat;
+    background-position: center;
+
+}
+#menu-container {
+    display: inline-block;
+    width: 45px;
+    height: 45px;
+}
+#mobile-menu-container {
+    position: relative;
+}
+
+#mobile-menu {
+    position: relative;
+}
+#main-menu, #mobile-menu { display: none;  }
+/* Header Styles End*/
