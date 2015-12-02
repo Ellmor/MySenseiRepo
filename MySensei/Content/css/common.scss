@@ -1,26 +1,38 @@
 ﻿@import url(https://fonts.googleapis.com/css?family=Roboto);
 @font-face {
     font-family: 'finger_paint';
-    src: url('~/Content/font/fingerpaintregular-webfont.eot');
-    src: url('~/Content/font/fingerpaintregular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('~/Content/font/fingerpaintregular-webfont.woff2') format('woff2'),
-         url('~/Content/font/fingerpaintregular-webfont.woff') format('woff'),
-         url('~/Content/font/fingerpaintregular-webfont.ttf') format('truetype'),
-         url('~/Content/font/fingerpaintregular-webfont.svg#finger_paintregular') format('svg');
+    src: url('/Content/font/fingerpaintregular-webfont.eot');
+    src: url('/Content/font/fingerpaintregular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/Content/font/fingerpaintregular-webfont.woff2') format('woff2'),
+         url('/Content/font/fingerpaintregular-webfont.woff') format('woff'),
+         url('/Content/font/fingerpaintregular-webfont.ttf') format('truetype'),
+         url('/Content/font/fingerpaintregular-webfont.svg#finger_paintregular') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 //Initial Variables
 $p-font: Roboto, sans-serif; // paragraph font
 $dh-font: finger_paint, sans-serif; // desktop header font
-
+/* Reduntant syles */
+.icon {
+    width: 45px;
+    height: 45px;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+}
 /* general styles*/
 .clear {clear: both;}
-ul {list-style: none;}
-
+ul, ol {list-style: none; padding: 0;}
+body {
+    font-family: $p-font;
+    font-size: 1em;
+}
+a {
+    text-decoration: none;
+}
 /* Header Styles Begin */
 #root-container {
-    width: 100%;
+    width: 375px;
 }
 header {
     text-align: center;
@@ -31,27 +43,18 @@ header {
     }
 }
 #nav-profile{
+    @extend .icon;
     background: url('/Content/gfx/acc-icon.png');
-    width: 45px;
-    height: 45px;
-    background-repeat: no-repeat;
-    background-position: center;
 }
 #logo{
+    @extend .icon;
     background: url('/Content/gfx/logo.png');
     width: 275px;
-    height: 45px;
     background-size: 180px 45px;
-    background-repeat: no-repeat;
-    background-position: center;
 }
 #mobile-burger{
+    @extend .icon;
     background: url('/Content/gfx/mobile-menu.png');
-    width: 45px;
-    height: 45px;
-    background-repeat: no-repeat;
-    background-position: center;
-
 }
 #menu-container {
     display: inline-block;
@@ -64,6 +67,56 @@ header {
 
 #mobile-menu {
     position: relative;
+    width: 100%;
+    li {
+        padding-top: 10px;  
+        width: 100%;
+    }
+    li:hover{
+        a{
+            color: white;
+        }
+        background: #434da2;
+    }
+    a {
+        color: #434da2;
+        font-family: $dh-font;
+    }
 }
-#main-menu, #mobile-menu { display: none;  }
+#main-menu, #mobile-menu, #user-actions { display: none;  }
 /* Header Styles End*/
+/* Footer Styles Begin*/
+footer {
+    background: #4eba65;
+    color: white;
+    width: 100%;
+}
+.foot-content-container {
+    width: 45%;
+    display: inline-block;
+    overflow: hidden;
+    overflow-wrap: break-word;
+    height: 160px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.foot-title {
+
+}
+#social-icons {
+    li {
+    display: inline-block;
+    @extend .icon;
+    }
+    #fb {
+        background: url('/Content/gfx/fb-icon.png');
+    }
+
+#pin {
+        background: url('/Content/gfx/pin-icon.png');
+    }
+#twit {
+        background: url('/Content/gfx/twit-icon.png');
+    }
+}
+/* Footer Styles End*/

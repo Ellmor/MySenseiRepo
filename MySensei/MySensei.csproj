@@ -235,8 +235,11 @@
     </Content>
     <Content Include="Content\css\normalize.css" />
     <Content Include="Content\gfx\Billed.jpg" />
+    <Content Include="Content\gfx\fb-icon.png" />
     <Content Include="Content\gfx\logo.png" />
     <Content Include="Content\gfx\mobile-menu.png" />
+    <Content Include="Content\gfx\pin-icon.png" />
+    <Content Include="Content\gfx\twit-icon.png" />
     <Content Include="Content\js\common.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
