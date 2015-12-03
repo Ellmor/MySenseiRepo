@@ -1,7 +1,7 @@
 ﻿@using MySensei.Models
 @model RegisterViewModel
 <section id="register-form" class="form">
-    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { role = "form" }))
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post))
     {
         @Html.AntiForgeryToken()
         <h4>Create a new account.</h4>

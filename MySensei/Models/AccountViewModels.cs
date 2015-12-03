@@ -60,11 +60,6 @@ namespace MySensei.Models
 
         [Display(Name = "Remember me?")]
         public bool RememberMe { get; set; }
-
-        [Required]
-        [Display(Name = "E-mail")]
-        [DataType(DataType.EmailAddress)]
-        public string Email { get; set; }
     }
 
     public class RegisterViewModel
