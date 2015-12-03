@@ -123,7 +123,7 @@ section {
     top: 26%;
     left: 25%; }
 
-button {
+button, .button {
   height: 1.765em;
   line-height: 1.2em;
   background: #434da2;
@@ -159,4 +159,7 @@ h2 {
 
 #home-item-icon-cc {
   background-image: url("/Content/gfx/home-cc-icon.png"); }
+
+#login-form div {
+  width: 100%; }
 
