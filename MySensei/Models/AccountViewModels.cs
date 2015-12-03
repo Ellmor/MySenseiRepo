@@ -66,13 +66,19 @@ namespace MySensei.Models
     {
         [Required]
         [DataType(DataType.Text)]
-        [Display(Name = "Fullname")]
+        [Display(Name = "Full Name")]
         public string Fullname { get; set; }
 
         [Required]
         [EmailAddress]
-        [Display(Name = "Email")]
+        [Display(Name = "E-mail")]
         public string Email { get; set; }
+
+        [Required]
+        [EmailAddress]
+        [Display(Name = "Confirm E-mail")]
+        [Compare("Email", ErrorMessage = "The E-mails do not match.")]
+        public string ConfirmEmail { get; set; }
 
         [Required]
         [Display(Name = "Username")]

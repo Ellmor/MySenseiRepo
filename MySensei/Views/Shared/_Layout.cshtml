@@ -25,25 +25,24 @@
                 </a>
                 <nav id="menu-container">
                     <ul id="main-menu">
-                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li>@Html.ActionLink("Join Class", "Index", "Users")</li>
-                        <li>@Html.ActionLink("Create Class", "Index", "Users")</li>
-                        <li>@Html.ActionLink("About", "About", "Home")</li>
-                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    </ul>
+                        <a href="@Url.Action("Index", "Home")"><li>Home</li></a>
+                        <a href="@Url.Action("Index", "Class")"><li>Join Class</li></a>
+                        <a href="@Url.Action("Index", "Class")"><li>Create Class</li></a>
+                      </ul>
                     <nav id="mobile-menu-container">
                         <div id="mobile-burger"></div>
                     </nav>
                 </nav>
                 <ul id="mobile-menu">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Join Class", "Index", "Users")</li>
-                    <li>@Html.ActionLink("Create Class", "Index", "Users")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
+                    <a href="@Url.Action("Index", "Home")"><li>Home</li></a>
+                    <a href="@Url.Action("Index", "Class")"><li>Join Class</li></a>
+                    <a href="@Url.Action("Index", "Class")"><li>Create Class</li></a>
+</ul>
                 <div id="user-actions">
-                    <b>insert login form here, or go to profile and logout if logged in</b>
+<!-- BEGIN LOGIN/REGISTER FORM -->
+                  @Html.Partial("_LoginPartial", new MySensei.Models.LoginViewModel())
+                        
+<!-- END USER LOGIN FORM -->
                 </div>
 </header>
             <!-- Header container end -->

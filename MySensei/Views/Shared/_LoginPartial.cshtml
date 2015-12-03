@@ -1,9 +1,13 @@
 ﻿@using Microsoft.AspNet.Identity
+@using MySensei.Models
+@model LoginViewModel
+
+
 @if (Request.IsAuthenticated)
 {
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {
-    @Html.AntiForgeryToken()
+        @Html.AntiForgeryToken()
 
     <ul class="nav navbar-nav navbar-right">
         <li>
@@ -15,8 +19,45 @@
 }
 else
 {
-    <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
-    </ul>
+     <h3>Login to your account</h3>
+                            <section id="login-form" class="form">
+                                @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+                                { 
+                                 @Html.AntiForgeryToken()
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    <div  class="form-group">
+                                       
+                                        <div>
+                                            @Html.TextBoxFor(x => x.Username, new { @class = "form-control", placeholder = Html.DisplayNameFor(x => x.Username) })
+                                            @Html.ValidationMessageFor(x => x.Username, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div  class="form-group">
+                                        <div>
+                                            @Html.PasswordFor(x => x.Password, new { @class = "form-control", placeholder = Html.DisplayNameFor(x => x.Password) })
+                                            @Html.ValidationMessageFor(x => x.Password, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div  class="form-group">
+                                        <div>
+                                            <div>
+                                                @Html.CheckBoxFor(x => x.RememberMe)
+                                                @Html.LabelFor(x => x.RememberMe)
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div  class="form-group">
+                                        <div>
+                                            <input type="submit" value="Log in" class="button"/>
+                                        </div>
+                                    </div>
+                                    <p>
+                                        @Html.ActionLink("Don't have an Account yet? Register here.", "Register", "Account")
+                                    </p>
+                                    @* Enable this once you have account confirmation enabled for password reset functionality
+                                        <p>
+                                            @Html.ActionLink("Forgot your password?", "ForgotPassword")
+                                        </p>*@
+                                }
+                            </section>
 }
