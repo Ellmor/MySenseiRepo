@@ -1,5 +1,9 @@
 ﻿[
   {
+<<<<<<< HEAD
+    "outputFile": "Content/Piotr.css",
+    "inputFile": "Content/Piotr.scss"
+=======
     "outputFile": "Content/StyleSheet1.css",
     "inputFile": "Content/StyleSheet1.scss"
   },
@@ -10,5 +14,6 @@
   {
     "outputFile": "Content/css/common.css",
     "inputFile": "Content/css/common.scss"
+>>>>>>> master
   }
 ]
