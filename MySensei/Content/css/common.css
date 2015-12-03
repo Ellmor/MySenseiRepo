@@ -65,9 +65,8 @@ header {
     padding-top: 10px;
     width: 100%; }
   #mobile-menu li:hover {
+    color: white;
     background: #434da2; }
-    #mobile-menu li:hover a {
-      color: white; }
   #mobile-menu a {
     color: #434da2;
     font-family: finger_paint, sans-serif; }
@@ -160,6 +159,11 @@ h2 {
 #home-item-icon-cc {
   background-image: url("/Content/gfx/home-cc-icon.png"); }
 
-#login-form div {
-  width: 100%; }
+.form .form-group {
+  width: 100%;
+  padding-top: 2px;
+  text-align: center; }
+  .form .form-group input[type=text], .form .form-group input[type=password] {
+    margin: 0 auto;
+    display: block; }
 

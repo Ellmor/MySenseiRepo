@@ -73,10 +73,8 @@ header {
         width: 100%;
     }
     li:hover{
-        a{
             color: white;
-        }
-        background: #434da2;
+            background: #434da2;
     }
     a {
         color: #434da2;
@@ -183,8 +181,14 @@ h2 {
     background-image: url('/Content/gfx/home-cc-icon.png');
     @extend .home-item-image;
 }
-#login-form {
-    div {
+.form {
+    .form-group {
         width: 100%;
+        padding-top: 2px;
+        text-align: center;
+        input[type=text] ,input[type=password] {
+            margin: 0 auto;
+            display: block;
+        }
     }
 }
