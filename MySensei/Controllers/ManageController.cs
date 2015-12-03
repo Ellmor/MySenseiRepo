@@ -7,12 +7,17 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using MySensei.Models;
+using MySensei.DataContext;
+using System.Data.Entity;
 
 namespace MySensei.Controllers
 {
     [Authorize]
     public class ManageController : Controller
     {
+        //Context for User database
+        private MySenseiDb MySenseiDb = new MySenseiDb();
+
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
@@ -32,9 +37,9 @@ namespace MySensei.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -64,13 +69,13 @@ namespace MySensei.Controllers
                 : "";
 
             var userId = User.Identity.GetUserId();
+            var user = MySenseiDb.Users.Where(x => x.AspNetUserId == userId).FirstOrDefault();
             var model = new IndexViewModel
             {
                 HasPassword = HasPassword(),
                 PhoneNumber = await UserManager.GetPhoneNumberAsync(userId),
-                TwoFactor = await UserManager.GetTwoFactorEnabledAsync(userId),
                 Logins = await UserManager.GetLoginsAsync(userId),
-                BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId)
+                User = user
             };
             return View(model);
         }
@@ -213,6 +218,47 @@ namespace MySensei.Controllers
 
         //
         // GET: /Manage/ChangePassword
+        public ActionResult ChangeEmail()
+        {
+            return View();
+        }
+
+        //
+        // POST: /Manage/ChangePassword
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> ChangeEmail(ChangeEmailViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            //var result = await UserManager.ChangePasswordAsync(User.Identity.GetUserId(), model.OldPassword, model.NewPassword);
+            var result = await ChangeEmailAsync(User.Identity.GetUserId(),model.NewEmail);
+            if (result.Succeeded)
+            {
+                var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+                if (user != null)
+                {
+                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                }
+                return RedirectToAction("Index", new { Message = ManageMessageId.ChangePasswordSuccess });
+            }
+            AddErrors(result);
+            return View(model);
+        }
+
+        private async Task<IdentityResult> ChangeEmailAsync(string v, string newEmail)
+        {
+            var db = new IdentityDb();
+            var user = db.Users.FirstOrDefaultAsync(x => x.Id == User.Identity.GetUserId());
+            user.Result.Email = newEmail;
+            await db.SaveChangesAsync();
+            return await Task.FromResult(IdentityResult.Success);
+        }
+
+        //
+        // GET: /Manage/ChangePassword
         public ActionResult ChangePassword()
         {
             return View();
@@ -331,7 +377,7 @@ namespace MySensei.Controllers
             base.Dispose(disposing);
         }
 
-#region Helpers
+        #region Helpers
         // Used for XSRF protection when adding external logins
         private const string XsrfKey = "XsrfId";
 
@@ -382,6 +428,6 @@ namespace MySensei.Controllers
             Error
         }
 
-#endregion
+        #endregion
     }
 }
