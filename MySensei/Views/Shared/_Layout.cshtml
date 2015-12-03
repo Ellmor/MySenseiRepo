@@ -3,37 +3,79 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scallable=no">
-    <title>@ViewBag.Title - MySensei</title>
-    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic&subset=latin,cyrillic-ext,cyrillic' rel='stylesheet' type='text/css'>
+    <title>MySensei</title>
+    <link href="@Url.Content("~/Content/css/normalize.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/css/common.css")" rel="stylesheet" type="text/css" />
+    <!--[if lt IE 9]>
+        <script src="@Url.Content("http://html5shim.googlecode.com/svn/trunk/html5.js")"></script>
+        <script src="@Url.Content("http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js")"></script>
+    <![endif]-->
     @Styles.Render("~/Content/css")
-
+    <meta name="description" content="MySensei Website" />
 </head>
 <body>
-    <header>
-        <div class="container">
-            <nav>
-                <a href="#" class="profile"><img src="#" alt="Profile Button" /></a>
-                <ul>
+    <div id="root-container">
+        <header>
+            @*<a href="@Url.Action("Register", "Account")">*@
+            <div id="nav-profile">
+            </div>
+            <a href="@Url.Action("Index", "Home")">
+                <div id="logo">
+                </div>
+                </a>
+                <nav id="menu-container">
+                    <ul id="main-menu">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Join Class", "Index", "Users")</li>
+                        <li>@Html.ActionLink("Create Class", "Index", "Users")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    </ul>
+                    <nav id="mobile-menu-container">
+                        <div id="mobile-burger"></div>
+                    </nav>
+                </nav>
+                <ul id="mobile-menu">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Users", "Index", "Users")</li>
+                    <li>@Html.ActionLink("Join Class", "Index", "Users")</li>
+                    <li>@Html.ActionLink("Create Class", "Index", "Users")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
-                <a href="#" id="menu-icon"></a>
-            </nav>
-        </div><!-- Header container end -->
-    </header><!-- Header end -->
-    <!-- Start of RenderBody -->
-        @RenderBody()
-    <!-- End of RenderBody -->
-    <footer>
-        <div class="container">
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </div><!-- End footer container -->
-    </footer>   
-
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+                <div id="user-actions">
+                    <b>insert login form here, or go to profile and logout if logged in</b>
+                </div>
+</header>
+            <!-- Header container end -->
+        <!-- Header end -->
+        <!-- Start of RenderBody -->
+        <div id="body-container">
+            @RenderBody()
+        </div>
+        <!-- End of RenderBody -->
+        <footer>
+            <div class="foot-content-container">
+                <div class="foot-title">Address</div>
+                <ul>
+                    <li>Sonderhoj 48</li>
+                    <li>8260 Aarhus</li>
+                    <li>Phone: 95 95 95 95</li>
+                    <li>E-mail: contact@mysensei.dk</li>
+                </ul>
+            </div>
+            <div class="foot-content-container">
+                <div class="foot-title">Social Media</div>
+                    <ul id="social-icons">
+                        <a href="http://facebook.com/" target="_blank"><li id="fb">&nbsp;</li></a>
+                        <a href="http://pinterest.com/" target="_blank"><li id="pin">&nbsp;</li></a>
+                        <a href="http://twitter.com/" target="_blank"><li id="twit">&nbsp;</li></a>
+</ul>
+                </div>
+        </footer>
+       
+        @Scripts.Render("~/bundles/jquery")
+        <script src="@Url.Content("~/Content/js/common.js")"></script>
+        @RenderSection("scripts", required: false)
+    </div>
 </body>
 </html>

@@ -1,10 +1,25 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-}
-
-<div class="heading">
-    <p>Join us for FREE! <button>SIGN UP</button></p>
+﻿<section id="home-cta-bg">
+    <div>
+        Join us for FREE!
+    </div>
+    <div>
+        <a href="@Url.Action("Register", "Account")"><button>Sign Up!</button></a>
+    </div>
+</section>
+<section id="home-item-boxes">
+    <div class="item-box">
+        <h1>Create an account for free!</h1>
+        <a href="@Url.Action("Register", "Account")"><div id="home-item-icon-ca"></div></a>
+        <h2>Join the biggest teacher-student community in Denmark!</h2>
 </div>
-<div class="container">
-
-</div>
+    <div class="item-box">
+        <h1>Find a class!</h1>
+        <a href="@Url.Action("Register", "Account")"><div id="home-item-icon-fc"></div></a>
+        <h2>Browse our database of classes and join whichever class you are interested in!</h2>
+    </div>
+    <div class="item-box">
+        <h1>Create a class!</h1>
+        <a href="@Url.Action("Register", "Account")"><div id="home-item-icon-cc"></div></a>
+        <h2>You have a skill you want to share with the world? Create a class and teach it to people!</h2>
+    </div>
+</section>
