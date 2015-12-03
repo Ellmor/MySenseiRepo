@@ -58,6 +58,14 @@ namespace MySensei.Models
         public string ConfirmPassword { get; set; }
     }
 
+    public class ChangeEmailViewModel
+    {
+        [Required]
+        [EmailAddress]
+        [Display(Name = "New email address")]
+        public string NewEmail { get; set; }
+    }
+
     public class AddPhoneNumberViewModel
     {
         [Required]

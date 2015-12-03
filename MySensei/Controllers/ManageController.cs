@@ -8,6 +8,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using MySensei.Models;
 using MySensei.DataContext;
+using System.Data.Entity;
 
 namespace MySensei.Controllers
 {
@@ -36,9 +37,9 @@ namespace MySensei.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -232,7 +233,8 @@ namespace MySensei.Controllers
             {
                 return View(model);
             }
-            var result = await UserManager.ChangePasswordAsync(User.Identity.GetUserId(), model.OldPassword, model.NewPassword);
+            //var result = await UserManager.ChangePasswordAsync(User.Identity.GetUserId(), model.OldPassword, model.NewPassword);
+            var result = await ChangeEmailAsync(User.Identity.GetUserId(),model.NewEmail);
             if (result.Succeeded)
             {
                 var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
@@ -244,6 +246,15 @@ namespace MySensei.Controllers
             }
             AddErrors(result);
             return View(model);
+        }
+
+        private async Task<IdentityResult> ChangeEmailAsync(string v, string newEmail)
+        {
+            var db = new IdentityDb();
+            var user = db.Users.FirstOrDefaultAsync(x => x.Id == User.Identity.GetUserId());
+            user.Result.Email = newEmail;
+            await db.SaveChangesAsync();
+            return await Task.FromResult(IdentityResult.Success);
         }
 
         //
@@ -366,7 +377,7 @@ namespace MySensei.Controllers
             base.Dispose(disposing);
         }
 
-#region Helpers
+        #region Helpers
         // Used for XSRF protection when adding external logins
         private const string XsrfKey = "XsrfId";
 
@@ -417,6 +428,6 @@ namespace MySensei.Controllers
             Error
         }
 
-#endregion
+        #endregion
     }
 }
