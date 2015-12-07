@@ -13,6 +13,20 @@
   background-repeat: no-repeat !important;
   background-position: center !important; }
 
+.teal-emp {
+  color: #45bab6;
+  text-transform: uppercase; }
+
+.viol-emp {
+  color: #414da2;
+  text-transform: uppercase; }
+
+.right {
+  float: right; }
+
+.left {
+  float: left; }
+
 /* general styles*/
 .clear {
   clear: both; }
@@ -27,6 +41,9 @@ body {
 
 a {
   text-decoration: none; }
+
+.center {
+  text-align: center; }
 
 /* Header Styles Begin */
 #root-container {
@@ -166,4 +183,34 @@ h2 {
   .form .form-group input[type=text], .form .form-group input[type=password] {
     margin: 0 auto;
     display: block; }
+
+.carousel-frame {
+  width: 100%;
+  margin: 0 auto; }
+  .carousel-frame h1 {
+    text-align: center; }
+  .carousel-frame .item {
+    text-align: right;
+    width: 100%; }
+
+.owl-dots {
+  clear: both; }
+
+.btn-violet {
+  background: #434da2;
+  color: white;
+  font-family: finger_paint, sans-serif;
+  border: none; }
+
+.btn-teal {
+  background: #4eba65;
+  color: white;
+  font-family: finger_paint, sans-serif;
+  border: none; }
+
+.big-btn {
+  height: 3em;
+  width: 3em;
+  font-size: 2em;
+  line-height: 2.2em; }
 

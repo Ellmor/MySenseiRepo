@@ -92,3 +92,4 @@ namespace MySensei.Models
         public ICollection<System.Web.Mvc.SelectListItem> Providers { get; set; }
     }
 }
+  

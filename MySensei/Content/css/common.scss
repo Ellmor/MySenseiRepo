@@ -20,6 +20,22 @@ $dh-font: finger_paint, sans-serif; // desktop header font
     background-repeat: no-repeat !important;
     background-position: center !important;
 }
+.teal-emp {
+    color: #45bab6;
+     text-transform: uppercase;
+}
+
+.viol-emp {
+    color: #414da2;
+     text-transform: uppercase;
+}
+.right {
+    float: right;
+}
+.left {
+    float: left;
+    
+}
 /* general styles*/
 .clear {clear: both;}
 ul, ol {list-style: none; padding: 0;}
@@ -29,6 +45,9 @@ body {
 }
 a {
     text-decoration: none;
+}
+.center {
+    text-align: center;
 }
 /* Header Styles Begin */
 #root-container {
@@ -192,3 +211,40 @@ h2 {
         }
     }
 }
+
+.carousel-frame {
+            width     : 100%;            
+            margin    : 0 auto;
+            h1 {
+                text-align: center;
+            }
+             .item {
+    text-align: right;
+    width: 100%;
+}
+
+}
+.owl-dots { // Fix for carousel nav float
+    clear: both;
+}
+
+.btn-violet {
+    background: #434da2;
+    color: white;
+    font-family: $dh-font;
+    border: none;
+}
+.btn-teal {
+    background: #4eba65;
+    color: white;
+    font-family: $dh-font;
+    border: none;
+}
+
+.big-btn {
+    height: 3em;
+    width: 3em;
+    font-size: 2em;
+    line-height: 2.2em;
+}
+

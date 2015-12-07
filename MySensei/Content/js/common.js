@@ -1,6 +1,8 @@
-﻿jQuery('#mobile-burger').click(function () {
-    jQuery('#mobile-menu').toggle();
-})
-jQuery('#nav-profile').click(function () {
-    jQuery('#user-actions').toggle();
-})
+﻿jQuery(document).ready(function() {
+    jQuery('#mobile-burger').click(function () {
+        jQuery('#mobile-menu').toggle();
+    })
+    jQuery('#nav-profile').click(function () {
+        jQuery('#user-actions').toggle();
+    })
+});
