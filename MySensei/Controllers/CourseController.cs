@@ -1,7 +1,13 @@
-﻿using MySensei.Models;
+﻿using Microsoft.AspNet.Identity;
+using MySensei.DataContext;
+using MySensei.Entities;
+using MySensei.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -10,22 +16,48 @@ namespace MySensei.Controllers
     [Authorize]
     public class CourseController : Controller
     {
-        // GET: Course
+        //Context for User database
+        private MySenseiDb MySenseiDb = new MySenseiDb();
+
+        // GET: Courses   AND SEARCH FOR COURSES
         [AllowAnonymous]
-        public ActionResult Search()
+        public ActionResult Index(IndexCourseViewModel model)
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+                if (model == null)
+                {
+                    model = new IndexCourseViewModel()
+                    {
+                        Courses = new List<Course>(),
+                        Query = ""
+                    };
+                }
+                if (model.Courses == null)
+                {
+                    model.Courses = new List<Course>();
+                }
+                if (model.Query != "")
+                {
+                    //search -> run the stored procedure
+                } 
+            }
+            return View(model);
         }
 
         [AllowAnonymous]
-        public ActionResult View(int id)
+        public ActionResult Details(int id)
         {
-            var model = new ViewCourseViewModel
+            var course = MySenseiDb.Courses.Where(x => x.CourseID == id).FirstOrDefault();
+            var cvm = new ViewCourseViewModel
             {
-                Id = id
+                Id = course.CourseID,
+                Description = course.Description,
+                Price = Convert.ToDecimal(course.Price),
+                Title = course.Title,
+                ImageUrl = course.Picture
             };
-
-            return View(model);
+            return View(cvm);
         }
 
         public ActionResult Create()
@@ -37,33 +69,53 @@ namespace MySensei.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(CreateCourseViewModel model)
         {
-            //if (ModelState.IsValid)
+            //var validImageTypes = new string[]
             //{
-            //    var user = new ApplicationUser { UserName = model.Username, Email = model.Email };
-            //    var mysenseiuser = new User
-            //    {
-            //        Fullname = model.Fullname,
-            //        UserName = model.Username,
-            //        AspNetUserId = user.Id
-            //    };
-            //    var result = await UserManager.CreateAsync(user, model.Password);
-            //    if (result.Succeeded)
-            //    {
-            //        await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-            //        MySenseiDb.Users.Add(mysenseiuser);
-            //        MySenseiDb.SaveChanges();
-            //        // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
-            //        // Send an email with this link
-            //        // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-            //        // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-            //        // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+            //    "image/gif",
+            //    "image/jpeg",
+            //    "image/pjpeg",
+            //    "image/png"
+            //};
 
-            //        return RedirectToAction("Index", "Manage");
-            //    }
-            //    AddErrors(result);
+            //if (model.ImageUpload == null || model.ImageUpload.ContentLength == 0)
+            //{
+            //    ModelState.AddModelError("ImageUpload", "This field is required");
+            //}
+            //else
+            //if (!validImageTypes.Contains(model.ImageUpload.ContentType))
+            //{
+            //    ModelState.AddModelError("ImageUpload", "Please choose either a GIF, JPG or PNG image.");
             //}
 
-            //// If we got this far, something failed, redisplay form
+            if (ModelState.IsValid)
+            {
+                var course = new Course
+                {
+                    Description = model.Description,
+                    Title = model.Title,
+                    Price = model.Price.ToString(),
+                    Location = "Default Location"
+                };
+
+                var userId = User.Identity.GetUserId();
+                var user = MySenseiDb.Users.Where(x => x.AspNetUserId == userId).FirstOrDefault();
+
+                course.Owners.Add(user);
+
+                if (model.ImageUpload != null && model.ImageUpload.ContentLength > 0)
+                {
+                    var uploadDir = "~/Uploads";
+                    var imagePath = Path.Combine(Server.MapPath(uploadDir), model.ImageUpload.FileName);
+                    var imageUrl = Path.Combine(uploadDir, model.ImageUpload.FileName);
+                    model.ImageUpload.SaveAs(imagePath);
+                    course.Picture = imageUrl;
+                }
+
+                MySenseiDb.Courses.Add(course);
+                MySenseiDb.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
             return View(model);
         }
     }
