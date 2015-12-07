@@ -1,0 +1,79 @@
+﻿@model MySensei.Models.IndexCourseViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@*Here's where the search and the list of results should be*@
+
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
+
+@using (Html.BeginForm("Index", "Course", FormMethod.Post))
+{
+    <div class="form-group">
+        <div>
+            @Html.TextBoxFor(x => x.Query, new { @class = "form-control", placeholder = Html.DisplayNameFor(x => x.Query) })
+            @Html.ValidationMessageFor(x => x.Query, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div>
+            <input type="submit" value="Search" class="button" />
+        </div>
+    </div>
+}
+
+@if (Model.Query != null && Model.Query != "")
+{
+    @Html.Raw("Results for " + Model.Query);
+}
+<table class="table">
+    <tr>
+        <th>
+            Title
+        </th>
+        <th>
+            Description
+        </th>
+        <th>
+            Location
+        </th>
+        <th>
+            Picture
+        </th>
+        <th>
+            Price
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model.Courses)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Picture)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @*@Html.ActionLink("Edit", "Edit", new { id=item.CourseID }) |*@
+                @Html.ActionLink("Details", "Details", new { id = item.CourseID })
+                @*@Html.ActionLink("Delete", "Delete", new { id=item.CourseID })*@
+            </td>
+        </tr>
+    }
+
+</table>
