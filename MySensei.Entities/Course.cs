@@ -16,7 +16,7 @@ namespace MySensei.Entities
         public int CourseID { get; set; }
 
         [StringLength(255)]
-        public string Titlte { get; set; }
+        public string Title { get; set; }
 
         [StringLength(255)]
         public string Description { get; set; }
