@@ -208,6 +208,10 @@
     <Compile Include="DataContext\MySenseiMigrations\201512011403010_Fullname.Designer.cs">
       <DependentUpon>201512011403010_Fullname.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataContext\MySenseiMigrations\201512071535001_TypoFix.cs" />
+    <Compile Include="DataContext\MySenseiMigrations\201512071535001_TypoFix.Designer.cs">
+      <DependentUpon>201512071535001_TypoFix.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataContext\MySenseiMigrations\Configuration.cs" />
     <Compile Include="DataContext\IdentityDb.cs" />
     <Compile Include="DataContext\IdentityMigrations\201511241219487_InitialCreate.cs" />
@@ -351,6 +355,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DataContext\MySenseiMigrations\201512011403010_Fullname.resx">
       <DependentUpon>201512011403010_Fullname.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContext\MySenseiMigrations\201512071535001_TypoFix.resx">
+      <DependentUpon>201512071535001_TypoFix.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

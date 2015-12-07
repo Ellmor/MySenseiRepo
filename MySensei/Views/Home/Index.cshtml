@@ -11,15 +11,15 @@
         <h1>Create an account for <span class="teal-emp">free!</span></h1>
         <a href="@Url.Action("Register", "Account")"><div id="home-item-icon-ca"></div></a>
         <h2>Join the biggest teacher-student community in Denmark!</h2>
-</div>
+    </div>
     <div class="item-box">
         <h1>Find a <span class="teal-emp">class!</span></h1>
         <a href="@Url.Action("Search", "Course")"><div id="home-item-icon-fc"></div></a>
-            <h2>Browse our database of classes and join whichever class you are interested in!</h2>
-</div>
+        <h2>Browse our database of classes and join whichever class you are interested in!</h2>
+    </div>
     <div class="item-box">
         <h1>Create a <span class="teal-emp">class!</span></h1>
-        <a href="@Url.Action("Register", "Account")"><div id="home-item-icon-cc"></div></a>
+        <a href="@Url.Action("Create", "Course")"><d><div id="home-item-icon-cc"></div></a>
         <h2>You have a skill you want to share with the world? Create a class and teach it to people!</h2>
     </div>
 </section>
@@ -30,58 +30,58 @@
             <a href="@Url.Action("View", "Course", new { id = "123" })">
                 <article class="item item-ft-c">
                     <img src="/Content/gfx/course-demo-img.png" alt="course-demo-img" class="left" />
-                    <h2>Some Title</h2>
+                    <h2>Some Title With a link</h2>
                     <p>Some Description</p>
                     <div class="clear"></div>
                 </article>
-                </a>
-                <article class="item item-ft-c">
-                    <img src="/Content/gfx/course-demo-img.png" alt="course-demo-img" class="left" />
-                    <h2>Some Title</h2>
-                    <p>Some Description</p>
-                    <div class="clear"></div>
-                </article>
-                <article class="item item-ft-c">
-                    <img src="/Content/gfx/course-demo-img.png" alt="course-demo-img" class="left" />
-                    <h2>Some Title</h2>
-                    <p>Some Description</p>
-                    <div class="clear"></div>
-                </article>
-                <article class="item item-ft-c">
-                    <img src="/Content/gfx/course-demo-img.png" alt="course-demo-img" class="left" />
-                    <h2>Some Title</h2>
-                    <p>Some Description</p>
-                    <div class="clear"></div>
-                </article>
-                <article class="item item-ft-c">
-                    <img src="/Content/gfx/course-demo-img.png" alt="course-demo-img" class="left" />
-                    <h2>Some Title</h2>
-                    <p>Some Description</p>
-                    <div class="clear"></div>
-                </article>
-                <article class="item item-ft-c">
-                    <img src="/Content/gfx/course-demo-img.png" alt="course-demo-img" class="left" />
-                    <h2>Some Title</h2>
-                    <p>Some Description</p>
-                    <div class="clear"></div>
-                </article>
-                <article class="item item-ft-c">
-                    <img src="/Content/gfx/course-demo-img.png" alt="course-demo-img" class="left" />
-                    <h2>Some Title</h2>
-                    <p>Some Description</p>
-                    <div class="clear"></div>
-                </article>
-                <article class="item item-ft-c">
-                    <img src="/Content/gfx/course-demo-img.png" alt="course-demo-img" class="left" />
-                    <h2>Some Title</h2>
-                    <p>Some Description</p>
-                    <div class="clear"></div>
-                </article>
-</div>        
-    </div>   
+            </a>
+            <article class="item item-ft-c">
+                <img src="/Content/gfx/course-demo-img.png" alt="course-demo-img" class="left" />
+                <h2>Some Title</h2>
+                <p>Some Description</p>
+                <div class="clear"></div>
+            </article>
+            <article class="item item-ft-c">
+                <img src="/Content/gfx/course-demo-img.png" alt="course-demo-img" class="left" />
+                <h2>Some Title</h2>
+                <p>Some Description</p>
+                <div class="clear"></div>
+            </article>
+            <article class="item item-ft-c">
+                <img src="/Content/gfx/course-demo-img.png" alt="course-demo-img" class="left" />
+                <h2>Some Title</h2>
+                <p>Some Description</p>
+                <div class="clear"></div>
+            </article>
+            <article class="item item-ft-c">
+                <img src="/Content/gfx/course-demo-img.png" alt="course-demo-img" class="left" />
+                <h2>Some Title</h2>
+                <p>Some Description</p>
+                <div class="clear"></div>
+            </article>
+            <article class="item item-ft-c">
+                <img src="/Content/gfx/course-demo-img.png" alt="course-demo-img" class="left" />
+                <h2>Some Title</h2>
+                <p>Some Description</p>
+                <div class="clear"></div>
+            </article>
+            <article class="item item-ft-c">
+                <img src="/Content/gfx/course-demo-img.png" alt="course-demo-img" class="left" />
+                <h2>Some Title</h2>
+                <p>Some Description</p>
+                <div class="clear"></div>
+            </article>
+            <article class="item item-ft-c">
+                <img src="/Content/gfx/course-demo-img.png" alt="course-demo-img" class="left" />
+                <h2>Some Title</h2>
+                <p>Some Description</p>
+                <div class="clear"></div>
+            </article>
+        </div>
+    </div>
 </section>
 <section id="ft-teachers">
-    
+
     <div class="carousel-frame">
         <h1><span class="teal-emp">Featured</span>Teachers</h1>
         <div id="ft-teachers-carousel" class="owl-carousel">
@@ -143,9 +143,9 @@
         if (jQuery(window).width() < 1024) {
             two_rows = false;
         }
-        
-       // $('#ft-courses-carousel').data('owlCarousel').destroy();
-       
+
+        // $('#ft-courses-carousel').data('owlCarousel').destroy();
+
         var owl_ftc = jQuery('#ft-courses-carousel');
         owl_ftc.owlCarousel({
             loop: true,
@@ -187,7 +187,7 @@
             }
         });
 
-       
+
     });
     jQuery(window).resize(function () {
         init_owls();
