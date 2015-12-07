@@ -25,19 +25,17 @@
 
         //mehtods:
         Owl2row.prototype.build2row = function (thisScope) {
-                 var carousel = $('.' + thisScope.owl.$element.context.id); // Replaced previous owl.options.baseClass to enable multiple carousels
+                 var carousel = $('#' + thisScope.owl.$element.context.id); // Replaced previous owl.options.baseClass to enable multiple carousels
             var carouselItems = carousel.find('.' + thisScope.owl.options.owl2rowTarget);
 
             var aEvenElements = [];
             var aOddElements = [];
-
             $.each(carouselItems, function (index, item) {
                 if (index % 2 === 0) {
                     aEvenElements.push(item);
                 } else {
                     aOddElements.push(item);
                 }
-            
             });
             carousel.empty();
 
@@ -112,7 +110,6 @@
                     .append(aOddElements[index]);
 
                 carousel.append(rowContainer);
-                console.log(carousel);
             });
         };
 

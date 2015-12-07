@@ -6,6 +6,7 @@
     <title>MySensei</title>
     <link href="@Url.Content("~/Content/css/normalize.css")" rel="stylesheet" type="text/css" />
     <link href="@Url.Content("~/Content/css/common.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/css/responsive.css")" rel="stylesheet" type="text/css" />
     <link href="@Url.Content("~/Content/css/owl.carousel.css")" rel="stylesheet" type="text/css" />
     <!--[if lt IE 9]>
         <script src="@Url.Content("http://html5shim.googlecode.com/svn/trunk/html5.js")"></script>
@@ -15,6 +16,7 @@
     @Scripts.Render("~/bundles/jquery")
     <script src="@Url.Content("~/Content/js/owl.carousel.min.js")"></script>
     <script src="@Url.Content("~/Content/js/owl.2row.plugin.js")"></script>
+    <script src="@Url.Content("~/Content/js/tabMe.js")"></script>
     @RenderSection("scripts", required: false)
     <meta name="description" content="MySensei Website" />
 </head>
@@ -23,6 +25,12 @@
         <header>
             @*<a href="@Url.Action("Register", "Account")">*@
             <div id="nav-profile">
+                <div id="user-actions">
+                    <!-- BEGIN LOGIN/REGISTER FORM -->
+                    @Html.Partial("_LoginPartial", new MySensei.Models.LoginViewModel())
+
+                    <!-- END USER LOGIN FORM -->
+                </div>
             </div>
             <a href="@Url.Action("Index", "Home")">
                 <div id="logo">
@@ -30,25 +38,20 @@
                 </a>
                 <nav id="menu-container">
                     <ul id="main-menu">
-                        <a href="@Url.Action("Index", "Home")"><li>Home</li></a>
-                        <a href="@Url.Action("Index", "Class")"><li>Join Class</li></a>
-                        <a href="@Url.Action("Index", "Class")"><li>Create Class</li></a>
-                      </ul>
+                        <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+                        <li><a href="@Url.Action("Index", "Class")">Join Class</a></li>
+                        <li><a href="@Url.Action("Index", "Class")">Create Class</a></li>
+                    </ul>
                     <nav id="mobile-menu-container">
                         <div id="mobile-burger"></div>
                     </nav>
                 </nav>
                 <ul id="mobile-menu">
-                    <a href="@Url.Action("Index", "Home")"><li>Home</li></a>
-                    <a href="@Url.Action("Index", "Class")"><li>Join Class</li></a>
-                    <a href="@Url.Action("Index", "Class")"><li>Create Class</li></a>
+                    <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+                    <li><a href="@Url.Action("Index", "Class")">Join Class</a></li>
+                    <li><a href="@Url.Action("Index", "Class")">Create Class</a></li>
 </ul>
-                <div id="user-actions">
-<!-- BEGIN LOGIN/REGISTER FORM -->
-                  @Html.Partial("_LoginPartial", new MySensei.Models.LoginViewModel())
-                        
-<!-- END USER LOGIN FORM -->
-                </div>
+                
 </header>
             <!-- Header container end -->
         <!-- Header end -->
@@ -69,11 +72,11 @@
             </div>
             <div class="foot-content-container">
                 <div class="foot-title">Social Media</div>
-                    <ul id="social-icons">
-                        <a href="http://facebook.com/" target="_blank"><li id="fb">&nbsp;</li></a>
-                        <a href="http://pinterest.com/" target="_blank"><li id="pin">&nbsp;</li></a>
-                        <a href="http://twitter.com/" target="_blank"><li id="twit">&nbsp;</li></a>
-</ul>
+                <ul id="social-icons">
+                    <li id="fb"><a href="http://facebook.com/" target="_blank">&nbsp;</a></li>
+                    <li id="pin"><a href="http://pinterest.com/" target="_blank">&nbsp;</a></li>
+                    <li id="twit"><a href="http://twitter.com/" target="_blank">&nbsp;</a></li>
+                </ul>
                 </div>
         </footer>
        

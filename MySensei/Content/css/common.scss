@@ -49,6 +49,9 @@ a {
 .center {
     text-align: center;
 }
+.half {
+    width: 48%;
+}
 /* Header Styles Begin */
 #root-container {
     width: 375px;
@@ -94,6 +97,9 @@ header {
     li:hover{
             color: white;
             background: #434da2;
+            a {
+                color: white;
+            }
     }
     a {
         color: #434da2;
@@ -158,6 +164,7 @@ section {
     }
 }
 button, .button {
+    width: 120px;
     height: 1.765em;
     line-height: 1.2em;
     background: #434da2;
@@ -247,4 +254,50 @@ h2 {
     font-size: 2em;
     line-height: 2.2em;
 }
+/* For tabMe Plugin */
+.tabMeMenu {
+    height: 30px;
+    float: left;
+    clear: both;
+}
+
+.tabMeMenu li {
+    @extend .button;
+    width: auto;
+    float: left;
+    margin-right: 3px;
+}
+
+.tabMeMenu li.current {
+    position: relative;
+    background-color: #fff;
+    border-bottom: 1px solid #fff;
+    z-index: 5;
+}
+
+.tabMeMenu li a {
+    padding: 10px;
+    text-transform: uppercase;
+    color: #fff;
+    text-decoration: none; 
+}
+
+.tabMeMenu .current a {
+    color: black;
+}
+.tabContainer {
+    
+    border: 1px solid #d4d4d1;
+    background-color: #fff;
+    float: left;
+    margin-bottom: 20px;
+    width: auto;
+}
+.tab {
+    width: 660px;
+    padding: 20px;
+}
+
+
+
 

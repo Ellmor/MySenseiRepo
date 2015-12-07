@@ -2,5 +2,9 @@
   {
     "outputFile": "Content/css/common.css",
     "inputFile": "Content/css/common.scss"
+  },
+  {
+    "outputFile": "Content/css/responsive.css",
+    "inputFile": "Content/css/responsive.scss"
   }
 ]
