@@ -72,9 +72,9 @@ namespace MySensei.Controllers
             var user = MySenseiDb.Users.Where(x => x.AspNetUserId == userId).FirstOrDefault();
             var model = new IndexViewModel
             {
-                HasPassword = HasPassword(),
-                PhoneNumber = await UserManager.GetPhoneNumberAsync(userId),
-                Logins = await UserManager.GetLoginsAsync(userId),
+                //HasPassword = HasPassword(),
+                //PhoneNumber = await UserManager.GetPhoneNumberAsync(userId),
+                //Logins = await UserManager.GetLoginsAsync(userId),
                 User = user
             };
             return View(model);
