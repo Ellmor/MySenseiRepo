@@ -7,10 +7,14 @@ using MySensei.Entities;
 namespace MySensei.Models
 {
     public class IndexViewModel /*Profile Page Model*/
-    {
-        public bool HasPassword { get; set; }
-        public IList<UserLoginInfo> Logins { get; set; }
-        public string PhoneNumber { get; set; }
+    {        
+        [DataType(DataType.Text)]
+        [Display(Name = "Fullname")]
+        public string Fullname { get; set; }
+        
+        [EmailAddress]
+        [Display(Name = "Email")]
+        public string Email { get; set; }
         public User User { get; set; }
     }
 
