@@ -13,6 +13,20 @@
   background-repeat: no-repeat !important;
   background-position: center !important; }
 
+.teal-emp {
+  color: #45bab6;
+  text-transform: uppercase; }
+
+.viol-emp {
+  color: #414da2;
+  text-transform: uppercase; }
+
+.right {
+  float: right; }
+
+.left {
+  float: left; }
+
 /* general styles*/
 .clear {
   clear: both; }
@@ -27,6 +41,12 @@ body {
 
 a {
   text-decoration: none; }
+
+.center {
+  text-align: center; }
+
+.half {
+  width: 48%; }
 
 /* Header Styles Begin */
 #root-container {
@@ -67,6 +87,8 @@ header {
   #mobile-menu li:hover {
     color: white;
     background: #434da2; }
+    #mobile-menu li:hover a {
+      color: white; }
   #mobile-menu a {
     color: #434da2;
     font-family: finger_paint, sans-serif; }
@@ -122,7 +144,8 @@ section {
     top: 26%;
     left: 25%; }
 
-button, .button {
+button, .button, .tabMeMenu li {
+  width: 120px;
   height: 1.765em;
   line-height: 1.2em;
   background: #434da2;
@@ -166,4 +189,71 @@ h2 {
   .form .form-group input[type=text], .form .form-group input[type=password] {
     margin: 0 auto;
     display: block; }
+
+.carousel-frame {
+  width: 100%;
+  margin: 0 auto; }
+  .carousel-frame h1 {
+    text-align: center; }
+  .carousel-frame .item {
+    text-align: right;
+    width: 100%; }
+
+.owl-dots {
+  clear: both; }
+
+.btn-violet {
+  background: #434da2;
+  color: white;
+  font-family: finger_paint, sans-serif;
+  border: none; }
+
+.btn-teal {
+  background: #4eba65;
+  color: white;
+  font-family: finger_paint, sans-serif;
+  border: none; }
+
+.big-btn {
+  height: 3em;
+  width: 3em;
+  font-size: 2em;
+  line-height: 2.2em; }
+
+/* For tabMe Plugin */
+.tabMeMenu {
+  height: 30px;
+  float: left;
+  clear: both; }
+
+.tabMeMenu li {
+  width: auto;
+  float: left;
+  margin-right: 3px; }
+
+.tabMeMenu li.current {
+  position: relative;
+  background-color: #fff;
+  border-bottom: 1px solid #fff;
+  z-index: 5; }
+
+.tabMeMenu li a {
+  padding: 10px;
+  text-transform: uppercase;
+  color: #fff;
+  text-decoration: none; }
+
+.tabMeMenu .current a {
+  color: black; }
+
+.tabContainer {
+  border: 1px solid #d4d4d1;
+  background-color: #fff;
+  float: left;
+  margin-bottom: 20px;
+  width: auto; }
+
+.tab {
+  width: 660px;
+  padding: 20px; }
 

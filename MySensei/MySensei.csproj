@@ -197,6 +197,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CourseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="DataContext\MySenseiMigrations\201511271027064_InitialCreate.cs" />
@@ -219,12 +220,20 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\CourseViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\css\owl.carousel.css" />
+    <Content Include="Content\css\responsive.css">
+      <DependentUpon>responsive.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\css\responsive.min.css">
+      <DependentUpon>responsive.css</DependentUpon>
+    </Content>
     <Content Include="Content\font\fingerpaintregular-webfont.svg" />
     <Content Include="Content\gfx\acc-icon.png" />
     <Content Include="Content\css\common.css">
@@ -234,16 +243,22 @@
       <DependentUpon>common.css</DependentUpon>
     </Content>
     <Content Include="Content\css\normalize.css" />
+    <Content Include="Content\gfx\AjaxLoader.gif" />
     <Content Include="Content\gfx\Billed.jpg" />
+    <Content Include="Content\gfx\course-demo-img.png" />
     <Content Include="Content\gfx\fb-icon.png" />
+    <Content Include="Content\gfx\grabbing.png" />
     <Content Include="Content\gfx\home-ca-icon.png" />
     <Content Include="Content\gfx\home-cc-icon.png" />
     <Content Include="Content\gfx\home-fc-icon.png" />
     <Content Include="Content\gfx\logo.png" />
     <Content Include="Content\gfx\mobile-menu.png" />
     <Content Include="Content\gfx\pin-icon.png" />
+    <Content Include="Content\gfx\teacher-demo-img.png" />
     <Content Include="Content\gfx\twit-icon.png" />
     <Content Include="Content\js\common.js" />
+    <Content Include="Content\js\owl.carousel.min.js" />
+    <Content Include="Content\js\tabMe.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <None Include="Content\css\common.scss" />
@@ -260,6 +275,8 @@
     <Content Include="Content\font\fingerpaintregular-webfont.ttf" />
     <Content Include="Content\font\fingerpaintregular-webfont.woff" />
     <Content Include="Content\font\fingerpaintregular-webfont.woff2" />
+    <Content Include="Content\js\owl.2row.plugin.js" />
+    <Content Include="Content\css\responsive.scss" />
     <None Include="Properties\PublishProfiles\MySensei.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -308,6 +325,9 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Service References\Application Insights\ConnectedService.json" />
+    <Content Include="Views\Course\Search.cshtml" />
+    <Content Include="Views\Course\View.cshtml" />
+    <Content Include="Views\Manage\EditProfile.cshtml" />
     <Content Include="Views\Manage\ChangeEmail.cshtml" />
   </ItemGroup>
   <ItemGroup>

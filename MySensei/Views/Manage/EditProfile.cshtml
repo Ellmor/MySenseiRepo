@@ -1,0 +1,30 @@
+﻿
+<p class="text-success">@ViewBag.StatusMessage</p>
+<div>
+    <h4>Change your account settings</h4>
+    <hr />
+    <dl>
+        <dt>Email:</dt>
+        <dd>
+            [
+            @Html.ActionLink("Change your email", "ChangeEmail")
+            ]
+        </dd>
+        <dt>Password:</dt>
+        <dd>
+            [
+            @Html.ActionLink("Change your password", "ChangePassword")
+            @*@if (Model.HasPassword)
+                {
+
+                }
+                else
+                {
+                    @Html.ActionLink("Create", "SetPassword")
+                }*@
+            ]
+        </dd>
+    </dl>
+
+    @*//Delete Account*@
+</div>

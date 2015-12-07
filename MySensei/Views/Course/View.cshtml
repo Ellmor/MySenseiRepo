@@ -1,0 +1,14 @@
+﻿@using MySensei.Models
+@model ViewCourseViewModel
+    <h1>Course id: @Html.DisplayFor(x => x.Id) </h1>
+@{
+    if (Request.IsAuthenticated)
+    {
+        <a href="@Url.Action("Join", "Course", new { id = "123" })">
+            <div class="button">Join Course</div></a>
+    }
+    else
+    {
+        <p>You need to login or register first before joining a course</p>
+    }
+}

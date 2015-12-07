@@ -1,0 +1,61 @@
+﻿@using MySensei.Models
+@model SearchCourseViewModel
+
+
+@using (Html.BeginForm("Search", "Course", FormMethod.Post))
+{
+    <div class="form-group">
+
+        <div>
+            @Html.TextBoxFor(x => x.Query, new { @class = "form-control", placeholder = Html.DisplayNameFor(x => x.Query) })
+            @Html.ValidationMessageFor(x => x.Query, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div>
+            <input type="submit" value="Search" class="button" />
+        </div>
+    </div>
+
+}
+@* Example List of Results*@
+<section id="course-search-results">
+    <a href="@Url.Action("View", "Course", new { id = "123" })">
+        <article class="item">
+            <img src="/Content/gfx/course-demo-img.png" alt="course-demo-img" class="left" />
+            <h2>Some Title</h2>
+            <p>Some Description</p>
+            <div class="clear"></div>
+        </article>
+        </a>
+        <article class="item">
+            <img src="/Content/gfx/course-demo-img.png" alt="course-demo-img" class="left" />
+            <h2>Some Title</h2>
+            <p>Some Description</p>
+            <div class="clear"></div>
+        </article>
+        <article class="item">
+            <img src="/Content/gfx/course-demo-img.png" alt="course-demo-img" class="left" />
+            <h2>Some Title</h2>
+            <p>Some Description</p>
+            <div class="clear"></div>
+        </article>
+        <article class="item">
+            <img src="/Content/gfx/course-demo-img.png" alt="course-demo-img" class="left" />
+            <h2>Some Title</h2>
+            <p>Some Description</p>
+            <div class="clear"></div>
+        </article>
+        <article class="item">
+            <img src="/Content/gfx/course-demo-img.png" alt="course-demo-img" class="left" />
+            <h2>Some Title</h2>
+            <p>Some Description</p>
+            <div class="clear"></div>
+        </article>
+        <article class="item">
+            <img src="/Content/gfx/course-demo-img.png" alt="course-demo-img" class="left" />
+            <h2>Some Title</h2>
+            <p>Some Description</p>
+            <div class="clear"></div>
+        </article>
+</section>

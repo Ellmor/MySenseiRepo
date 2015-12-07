@@ -264,6 +264,7 @@ namespace MySensei.Controllers
             return View();
         }
 
+       
         //
         // POST: /Manage/ChangePassword
         [HttpPost]
@@ -319,7 +320,12 @@ namespace MySensei.Controllers
             // If we got this far, something failed, redisplay form
             return View(model);
         }
+        // GET: /Manage/EditProfile
 
+            public ActionResult EditProfile(int userId)
+        {
+            return View(userId);
+        }
         //
         // GET: /Manage/ManageLogins
         public async Task<ActionResult> ManageLogins(ManageMessageId? message)
