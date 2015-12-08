@@ -55,4 +55,6 @@ namespace MySensei.Models
         [Display(Name = "Price")]
         public decimal Price { get; set; }
     }
+
+    
 }

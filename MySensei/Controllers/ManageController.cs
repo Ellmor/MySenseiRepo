@@ -17,6 +17,7 @@ namespace MySensei.Controllers
     {
         //Context for User database
         private MySenseiDb MySenseiDb = new MySenseiDb();
+        private IdentityDb IdentityDb = new IdentityDb();
 
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
@@ -54,7 +55,17 @@ namespace MySensei.Controllers
                 _userManager = value;
             }
         }
-
+        public async Task<ActionResult> Delete(int id)
+        {
+            
+            var user = MySenseiDb.Users.Where(x => x.UserId == id).FirstOrDefault();
+            var realUser = IdentityDb.Users.Where(x => x.Id == user.AspNetUserId).FirstOrDefault();
+            IdentityDb.Users.Remove(realUser);
+            IdentityDb.SaveChanges();
+            MySenseiDb.Users.Remove(user);
+            MySenseiDb.SaveChanges();
+                return RedirectToAction("Index");
+        }
         //
         // GET: /Manage/Index
         public ActionResult Index(ManageMessageId? message)
@@ -68,6 +79,7 @@ namespace MySensei.Controllers
                 : message == ManageMessageId.RemovePhoneSuccess ? "Your phone number was removed."
                 : "";
 
+            //new IdentityDb().Users.Remove
             var userId = User.Identity.GetUserId();
             var user = MySenseiDb.Users.Where(x => x.AspNetUserId == userId).FirstOrDefault();
             var model = new IndexViewModel
@@ -76,7 +88,7 @@ namespace MySensei.Controllers
             };
             return View(model);
         }
-
+        
         //
         // POST: /Manage/RemoveLogin
         [HttpPost]
