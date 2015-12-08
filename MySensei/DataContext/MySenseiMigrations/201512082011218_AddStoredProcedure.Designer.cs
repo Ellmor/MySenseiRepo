@@ -7,13 +7,13 @@ namespace MySensei.DataContext.MySenseiMigrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class UserImg : IMigrationMetadata
+    public sealed partial class AddStoredProcedure : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(UserImg));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddStoredProcedure));
         
         string IMigrationMetadata.Id
         {
-            get { return "201512081745321_UserImg"; }
+            get { return "201512082011218_AddStoredProcedure"; }
         }
         
         string IMigrationMetadata.Source

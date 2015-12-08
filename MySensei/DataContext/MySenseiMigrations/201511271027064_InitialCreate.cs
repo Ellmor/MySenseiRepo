@@ -15,7 +15,7 @@ namespace MySensei.DataContext.MySenseiMigrations
                         Titlte = c.String(maxLength: 255),
                         Description = c.String(maxLength: 255),
                         Location = c.String(maxLength: 255),
-                        Picture = c.String(maxLength: 255),
+                        Picture = c.Binary(),
                         Price = c.String(maxLength: 20),
                     })
                 .PrimaryKey(t => t.CourseID);
@@ -30,7 +30,7 @@ namespace MySensei.DataContext.MySenseiMigrations
                         LastName = c.String(maxLength: 100),
                         Email = c.String(maxLength: 100),
                         Phone = c.String(maxLength: 50),
-                        ProfilePicture = c.String(maxLength: 255),
+                        ProfilePicture = c.Binary(),
                         Description = c.String(maxLength: 255),
                         AspNetUserId = c.Int(),
                     })

@@ -13,7 +13,7 @@ namespace MySensei.DataContext.MySenseiMigrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201512081219248_AddImageDB"; }
+            get { return "201512081955408_AddImageDB"; }
         }
         
         string IMigrationMetadata.Source
