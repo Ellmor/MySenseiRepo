@@ -20,19 +20,26 @@ namespace MySensei.DataContext.IdentityMigrations
         {
             IdentityRole roleAdmin = new IdentityRole("Admin");
             IdentityRole roleUser = new IdentityRole("User");
-            context.Roles.Add(roleAdmin);
-            context.Roles.Add(roleUser);
-            
+            context.Roles.AddOrUpdate(x => x.Name, roleAdmin);
+            context.Roles.AddOrUpdate(x => x.Name, roleUser);
+
             if (!(context.Users.Any(u => u.UserName == "Administrator")))
             {
                 var userStore = new UserStore<ApplicationUser>(context);
                 var userManager = new UserManager<ApplicationUser>(userStore);
-                var passwordHash = new PasswordHasher();
-                string password = passwordHash.HashPassword("!Admin12");
-                var userToInsert = new ApplicationUser { UserName = "Administrator", PasswordHash = password };
-                userManager.Create(userToInsert, "Password@123");
+                var userToInsert = new ApplicationUser { UserName = "Administrator" };
+                userManager.Create(userToInsert, "!Admin12");
                 userManager.AddToRole(userToInsert.Id, "Admin");
+                var msdb = new MySenseiDb();
+                msdb.Users.Add(new Entities.User()
+                {
+                    AspNetUserId = userToInsert.Id,
+                    Fullname = "Admin",
+                    UserName = userToInsert.UserName
+                });
+                msdb.SaveChanges();
             }
+
         }
     }
 }
