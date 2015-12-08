@@ -5,16 +5,17 @@
         @{
 
             if (Model.User != null && Model.User.ProfilePicture != null)
-            {
-                @Html.Raw("<img src=\"data:image/jpeg;base64," + Convert.ToBase64String(Model.User.ProfilePicture) + "\" alt=\" Profile Picture\" />")
+            {  <article class="item">
+            @Html.Raw("<img src=\"data:image/jpeg;base64," + Convert.ToBase64String(Model.User.ProfilePicture) + "\" alt=\" Profile Picture\" />")
+        </article>
             }
             else
             {
-                @Html.Raw("No profile picture");
+            @Html.Raw("No profile picture");
             }
-        }
+            }
 
-    </div>
+</div>
     <div class="right half">
         <h3 id="user-name">@Model.User.Fullname</h3>
         <div id="user-data">@Model.User.UserName</div>

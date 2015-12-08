@@ -52,6 +52,9 @@ a {
 .half {
     width: 48%;
 }
+.item > img {
+    max-width: 240px;
+}
 /* Header Styles Begin */
 #root-container {
     width: 375px;

@@ -264,6 +264,7 @@
     <Content Include="Content\gfx\AjaxLoader.gif" />
     <Content Include="Content\gfx\Billed.jpg" />
     <Content Include="Content\gfx\course-demo-img.png" />
+    <Content Include="Content\gfx\def_user.jpg" />
     <Content Include="Content\gfx\fb-icon.png" />
     <Content Include="Content\gfx\grabbing.png" />
     <Content Include="Content\gfx\home-ca-icon.png" />

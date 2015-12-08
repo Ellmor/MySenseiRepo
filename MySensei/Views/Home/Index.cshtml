@@ -56,23 +56,27 @@
             @{
                 foreach (FtTeacherViewModel ftt in Model.FtTeacherViewModel)
                 {
-                   
-                        <article class="item item-ft-t">
-                            @Html.Raw("<img src=\"data:image/jpeg;base64," + Convert.ToBase64String(ftt.ImageUrl) + "\" alt=\" Course Image\"  class=\" left\"  />")
-                            <h2>@ftt.name</h2>
-                            <p>@ftt.Description</p>
-                            <div class="clear"></div>
-                        </article>
                     
-                }
+                        var img = ftt.ImageUrl;
+                        var img2 = Convert.ToBase64String(img);
+                           
+                            <article class="item item-ft-t">
+                                
+                                @Html.Raw("<img src=\"data:image/jpeg;base64," + img2 + "\" alt=\" Course Image\"  class=\" left\"  />")
+                                <h2>@ftt.name</h2>
+                                <p>@ftt.Description</p>
+                                <div class="clear"></div>
+                            </article>
+
+                    }
 
 
-            }
+                        }
 
 
-            
-        </div>
+
     </div>
+</div>
 </section>
 <script type="text/javascript">
     //Features Courses //TODO: fix re-init
