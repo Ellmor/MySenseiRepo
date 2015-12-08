@@ -11,6 +11,7 @@ using Microsoft.Owin.Security;
 using MySensei.Models;
 using MySensei.Entities;
 using MySensei.DataContext;
+using System.IO;
 
 namespace MySensei.Controllers
 {
@@ -156,12 +157,20 @@ namespace MySensei.Controllers
         {
             if (ModelState.IsValid)
             {
+                byte[] imgBuffer = null;
+                using (var binaryReader = new BinaryReader(model.ProfilePicture.InputStream))
+                {
+                    imgBuffer = binaryReader.ReadBytes(model.ProfilePicture.ContentLength);
+                }
                 var user = new ApplicationUser { UserName = model.Username, Email = model.Email };
                 var mysenseiuser = new User
                 {
                     Fullname = model.Fullname,
                     UserName = model.Username,
-                    AspNetUserId = user.Id
+                    AspNetUserId = user.Id,
+                    ProfilePicture = imgBuffer,
+                    Description = model.Description
+
                 };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)

@@ -1,41 +1,55 @@
-﻿<section id="user-info">
+﻿@using MySensei.Models;
+@model IndexViewModel
+<section id="user-info">
     <div class="left half">
-        @if (Model.User != null && Model.User.ProfilePicture != null)
-        {
-            <img src="@Url.Content(Model.User.ProfilePicture)" alt="Profile Picture" />
-        }
-        else
-        {
-            @Html.Raw("No profile picture");
+        @{
+
+            if (Model.User != null && Model.User.ProfilePicture != null)
+            {
+                @Html.Raw("<img src=\"data:image/jpeg;base64," + Convert.ToBase64String(Model.User.ProfilePicture) + "\" alt=\" Profile Picture\" />")
+            }
+            else
+            {
+                @Html.Raw("No profile picture");
+            }
         }
 
     </div>
     <div class="right half">
-        @*Replace line below with @Html.DisplayFor(model => model.Fullname)*@
-        <h3 id="user-name">Stanley Hudson</h3>
-        @*Replace line below with @Html.DisplayFor(model => model.User.Description)*@
-        <div id="user-data">53 Years Old, Male</div>
-        <div id="user-desc">My Name is Stanley. I work at Dunder Mifilin Paper Company.</div>
-        <div class="button"><a href="@Url.Action("EditProfile", "Manage", new { userId = "123" })">Edit Profile</a></div>
+        <h3 id="user-name">@Model.User.Fullname</h3>
+        <div id="user-data">@Model.User.UserName</div>
+        <div id="user-desc">@Model.User.Description</div>
+        <div class="button"><a href="@Url.Action("EditProfile", "Manage", new { userId = Model.User.UserId })">Edit Profile</a></div>
     </div>
     <div class="clear"></div>
 </section>
+
 <secion id="user-courses">
     <div id="tabbedContainer" class="tabMe">
         <div class="tab" data-name="My Classes">
             @foreach (var item in Model.User.OfferedCourses)
             {
-                <p>
-                    @Html.ActionLink((string)item.Title, "Details", "Course", new { id = item.CourseID })
-                </p>
+                <a href="@Url.Action("Details", "Course", new { id = item.CourseID })">
+                    <article class="item">
+                        @Html.Raw("<img src=\"data:image/jpeg;base64," + Convert.ToBase64String(item.Picture) + "\" alt=\" Course Image\"  class=\" left\"  />")
+                        <h2>@item.Title</h2>
+                        <p>@item.Description</p>
+                        <div class="clear"></div>
+                    </article>
+                </a>
             }
         </div>
         <div class="tab" data-name="My Courses">
             @foreach (var item in Model.User.TakenCourses)
             {
-                <p>
-                    @Html.ActionLink((string)item.Title, "Details", "Course", new { id = item.CourseID })
-                </p>
+                <a href="@Url.Action("Details", "Course", new { id = item.CourseID })">
+                    <article class="item">
+                        @Html.Raw("<img src=\"data:image/jpeg;base64," + Convert.ToBase64String(item.Picture) + "\" alt=\" Course Image\"  class=\" left\"  />")
+                        <h2>@item.Title</h2>
+                        <p>@item.Description</p>
+                        <div class="clear"></div>
+                    </article>
+                </a>
             }
         </div>
     </div>

@@ -37,8 +37,8 @@
 
         <a href="@Url.Action("Details", "Course", new { id = item.CourseID })">
             <article class="item">
-                @Html.Raw("<img src=\"data:image/jpeg;base64," + Convert.ToBase64String(item.Picture) + "\" alt=\" Course Image\"  class=\" left\"  />");
-                <h2>@item.Title;</h2>
+                @Html.Raw("<img src=\"data:image/jpeg;base64," + Convert.ToBase64String(item.Picture) + "\" alt=\" Course Image\"  class=\" left\"  />")
+                <h2>@item.Title</h2>
                 <p>@item.Description</p>
                 <div class="clear"></div>
             </article>

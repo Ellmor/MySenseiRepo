@@ -25,8 +25,7 @@ namespace MySensei.Entities
         [StringLength(50)]
         public string Phone { get; set; }
 
-        [StringLength(255)]
-        public string ProfilePicture { get; set; }
+               public byte[] ProfilePicture { get; set; }
 
         [StringLength(255)]
         public string Description { get; set; }

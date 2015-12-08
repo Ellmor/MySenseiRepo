@@ -5,6 +5,7 @@ using MySensei.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -19,10 +20,34 @@ namespace MySensei.Controllers
     {
         //Context for User database
         private MySenseiDb MySenseiDb = new MySenseiDb();
+
         [AllowAnonymous]
         public ActionResult Index()
         {
             return RedirectToAction("Search");
+        }
+        public ActionResult Join(int id)
+        {
+            var userId = User.Identity.GetUserId();
+            var user = MySenseiDb.Users.Where(x => x.AspNetUserId == userId).FirstOrDefault();
+            var c = MySenseiDb.Courses.Where(x => x.CourseID == id).FirstOrDefault();
+            if(!user.TakenCourses.Contains(c)) { 
+            user.TakenCourses.Add(c);
+            MySenseiDb.SaveChanges();
+            }
+            return RedirectToAction("Details", new { id = id });
+        }
+        public ActionResult Leave(int id)
+        {
+            var userId = User.Identity.GetUserId();
+            var user = MySenseiDb.Users.Where(x => x.AspNetUserId == userId).FirstOrDefault();
+            var c = MySenseiDb.Courses.Where(x => x.CourseID == id).FirstOrDefault();
+            if (user.TakenCourses.Contains(c))
+            {
+                user.TakenCourses.Remove(c);
+                MySenseiDb.SaveChanges();
+            }
+            return RedirectToAction("Details", new { id = id });
         }
         // GET: Courses   AND SEARCH FOR COURSES
         [AllowAnonymous]
@@ -44,11 +69,17 @@ namespace MySensei.Controllers
                 }
                 if (model.Query != null && model.Query != "")
                 {
-                   //TODO
-                    
-                    
-                    //search -> run the stored procedure
-                    //filter or whatever magic
+                     IEnumerable<Course> dbCourses;
+                    string dbQuery = "EXEC dbo.spFindCourse @Phrase = '" + model.Query + "'";
+                    using (MySenseiDb)
+                    {
+                        dbCourses = MySenseiDb.Courses.SqlQuery(dbQuery).ToList();
+                    }
+
+                    model.Courses = dbCourses;
+
+
+
                 }
                 else
                 {
@@ -63,8 +94,9 @@ namespace MySensei.Controllers
         public ActionResult Details(int id)
         {
             var course = MySenseiDb.Courses.Where(x => x.CourseID == id).FirstOrDefault();
-            var cvm = new ViewCourseViewModel
-            {
+
+            var fcvm = new FtCourseViewModel
+            {         
                 Id = course.CourseID,
                 Description = course.Description,
                 Price = Convert.ToDecimal(course.Price),
@@ -72,7 +104,39 @@ namespace MySensei.Controllers
                 ImageUrl = course.Picture
 
         };
-            return View(cvm);
+
+            var userId = User.Identity.GetUserId();
+            var user = MySenseiDb.Users.Where(x => x.AspNetUserId == userId).FirstOrDefault();
+            Boolean isTeacher = false;
+            Boolean isStudent = false;
+
+            foreach (User us in course.Owners)
+            {
+               if(us == user)
+                {
+                    isTeacher = true;
+                    break;
+                }
+            }
+            foreach(User ut in course.Participants)
+            {
+
+                if (ut == user)
+                {
+                    isStudent = true;
+                    break;
+                }
+            }
+            var model = new CUViewModel()
+            {
+                userId = user.UserId,
+                isStudent = isStudent,
+                isTeacher = isTeacher,
+                CourseInView = fcvm
+
+            };
+
+            return View(model);
         }
 
         public ActionResult Create()
@@ -92,7 +156,6 @@ namespace MySensei.Controllers
             };
             if (model.ImageUpload == null)
             {
-                Debug.WriteLine(model.ImageUpload.ContentLength);
                 ModelState.AddModelError("ImageUpload", "This field is requireder");
                 
             }  else if (!validImageTypes.Contains(model.ImageUpload.ContentType))
