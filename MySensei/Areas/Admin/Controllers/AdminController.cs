@@ -8,8 +8,7 @@ using MySensei.DataContext;
 
 namespace MySensei.Areas.Admin.Controllers
 {
-    [Authorize]
-    
+    [Authorize(Roles = "Admin")]
     public class AdminController : Controller
     {
         private MySenseiDb MySenseiDb = new MySenseiDb();
