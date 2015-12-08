@@ -1,0 +1,23 @@
+﻿@using MySensei.Entities;
+@model List<Course>
+<section id="admin-users">
+    @{
+
+        foreach (Course c in Model)
+        {
+
+            <article class="item">
+                @Html.Raw("<img src=\"data:image/jpeg;base64," + Convert.ToBase64String(c.Picture) + "\" alt=\" Course Image\"  class=\" left\"  />")
+                <h2>@c.Title</h2>
+                <p>@c.Description</p>
+                <p>Created by: @c.Owners.FirstOrDefault().Fullname</p>
+                <p>Number of participants: @c.Participants.Count()</p>
+                <a href="@Url.Action("Index", "Manage", new { Area = "", id = c.Owners.FirstOrDefault().UserId })">Manage User</a>                
+                <a href="@Url.Action("Details", "Course", new { Area = "", id = c.CourseID })">Edit Course</a>
+                <a href="@Url.Action("Delete", "Course", new { Area = "", id = c.CourseID })">Delete Course</a>
+                <div class="clear"></div>
+            </article>
+        }
+
+    }
+</section>

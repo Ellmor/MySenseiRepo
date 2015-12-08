@@ -15,7 +15,7 @@ namespace MySensei.Areas.Admin
         public override void RegisterArea(AreaRegistrationContext context) 
         {
             context.MapRoute(
-                "Admin_default",
+                "Admin_Default",
                 "Admin/{controller}/{action}/{id}",
                 new { Controller="Admin", action = "Index", id = UrlParameter.Optional }
             );

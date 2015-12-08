@@ -26,6 +26,15 @@ namespace MySensei.Controllers
         {
             return RedirectToAction("Search");
         }
+      
+        public ActionResult Delete(int id)
+        {
+            var c = MySenseiDb.Courses.Where(x => x.CourseID == id).FirstOrDefault();
+            MySenseiDb.Courses.Remove(c);
+            MySenseiDb.SaveChanges();
+
+            return RedirectToAction("Search");
+        }
         public ActionResult Join(int id)
         {
             var userId = User.Identity.GetUserId();
