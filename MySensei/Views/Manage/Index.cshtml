@@ -8,10 +8,12 @@
         {
             @Html.Raw("No profile picture");
         }
-        
+
     </div>
     <div class="right half">
+        @*Replace line below with @Html.DisplayFor(model => model.Fullname)*@
         <h3 id="user-name">Stanley Hudson</h3>
+        @*Replace line below with @Html.DisplayFor(model => model.User.Description)*@
         <div id="user-data">53 Years Old, Male</div>
         <div id="user-desc">My Name is Stanley. I work at Dunder Mifilin Paper Company.</div>
         <div class="button"><a href="@Url.Action("EditProfile", "Manage", new { userId = "123" })">Edit Profile</a></div>
@@ -21,10 +23,20 @@
 <secion id="user-courses">
     <div id="tabbedContainer" class="tabMe">
         <div class="tab" data-name="My Classes">
-            <p>Some classes here</p>
+            @foreach (var item in Model.User.OfferedCourses)
+            {
+                <p>
+                    @Html.ActionLink((string)item.Title, "Details", "Course", new { id = item.CourseID })
+                </p>
+            }
         </div>
         <div class="tab" data-name="My Courses">
-            <p>Some Courses here</p>
+            @foreach (var item in Model.User.TakenCourses)
+            {
+                <p>
+                    @Html.ActionLink((string)item.Title, "Details", "Course", new { id = item.CourseID })
+                </p>
+            }
         </div>
     </div>
 </secion>

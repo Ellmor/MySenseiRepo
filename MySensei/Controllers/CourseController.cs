@@ -37,10 +37,16 @@ namespace MySensei.Controllers
                 {
                     model.Courses = new List<Course>();
                 }
-                if (model.Query != "")
+                if (model.Query != null && model.Query != "")
                 {
                     //search -> run the stored procedure
-                } 
+                    //filter or whatever magic
+                }
+                else
+                {
+                    //display all courses
+                    model.Courses = MySenseiDb.Courses.ToList();
+                }
             }
             return View(model);
         }
