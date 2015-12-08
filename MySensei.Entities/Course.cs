@@ -24,8 +24,8 @@ namespace MySensei.Entities
         [StringLength(255)]
         public string Location { get; set; }
 
-        [StringLength(255)]
-        public string Picture { get; set; }
+       
+        public byte[] Picture { get; set; }
 
         [StringLength(20)]
         public string Price { get; set; }

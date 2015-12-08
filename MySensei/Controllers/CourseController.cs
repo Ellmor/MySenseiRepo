@@ -5,6 +5,7 @@ using MySensei.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -18,16 +19,20 @@ namespace MySensei.Controllers
     {
         //Context for User database
         private MySenseiDb MySenseiDb = new MySenseiDb();
-
+        [AllowAnonymous]
+        public ActionResult Index()
+        {
+            return RedirectToAction("Search");
+        }
         // GET: Courses   AND SEARCH FOR COURSES
         [AllowAnonymous]
-        public ActionResult Index(IndexCourseViewModel model)
+        public ActionResult Search(SearchCourseViewModel model)
         {
             if (ModelState.IsValid)
             {
                 if (model == null)
                 {
-                    model = new IndexCourseViewModel()
+                    model = new SearchCourseViewModel()
                     {
                         Courses = new List<Course>(),
                         Query = ""
@@ -39,6 +44,9 @@ namespace MySensei.Controllers
                 }
                 if (model.Query != null && model.Query != "")
                 {
+                   //TODO
+                    
+                    
                     //search -> run the stored procedure
                     //filter or whatever magic
                 }
@@ -62,7 +70,8 @@ namespace MySensei.Controllers
                 Price = Convert.ToDecimal(course.Price),
                 Title = course.Title,
                 ImageUrl = course.Picture
-            };
+
+        };
             return View(cvm);
         }
 
@@ -75,23 +84,21 @@ namespace MySensei.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(CreateCourseViewModel model)
         {
-            //var validImageTypes = new string[]
-            //{
-            //    "image/gif",
-            //    "image/jpeg",
-            //    "image/pjpeg",
-            //    "image/png"
-            //};
-
-            //if (model.ImageUpload == null || model.ImageUpload.ContentLength == 0)
-            //{
-            //    ModelState.AddModelError("ImageUpload", "This field is required");
-            //}
-            //else
-            //if (!validImageTypes.Contains(model.ImageUpload.ContentType))
-            //{
-            //    ModelState.AddModelError("ImageUpload", "Please choose either a GIF, JPG or PNG image.");
-            //}
+           
+          
+            var validImageTypes = new string[]
+            {
+              "image/jpeg"
+            };
+            if (model.ImageUpload == null)
+            {
+                Debug.WriteLine(model.ImageUpload.ContentLength);
+                ModelState.AddModelError("ImageUpload", "This field is requireder");
+                
+            }  else if (!validImageTypes.Contains(model.ImageUpload.ContentType))
+            {
+                ModelState.AddModelError("ImageUpload", "Please choose either a GIF, JPG or PNG image.");
+            }
 
             if (ModelState.IsValid)
             {
@@ -108,14 +115,14 @@ namespace MySensei.Controllers
 
                 course.Owners.Add(user);
 
-                if (model.ImageUpload != null && model.ImageUpload.ContentLength > 0)
-                {
-                    var uploadDir = "~/Uploads";
-                    var imagePath = Path.Combine(Server.MapPath(uploadDir), model.ImageUpload.FileName);
-                    var imageUrl = Path.Combine(uploadDir, model.ImageUpload.FileName);
-                    model.ImageUpload.SaveAs(imagePath);
-                    course.Picture = imageUrl;
-                }
+                
+                    byte[] imgBuffer = null;
+                    using (var binaryReader = new BinaryReader(model.ImageUpload.InputStream))
+                    {
+                        imgBuffer = binaryReader.ReadBytes(model.ImageUpload.ContentLength);
+                    }
+                    course.Picture = imgBuffer;
+                 
 
                 MySenseiDb.Courses.Add(course);
                 MySenseiDb.SaveChanges();

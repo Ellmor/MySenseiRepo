@@ -7,7 +7,7 @@ using System.Web;
 
 namespace MySensei.Models
 {
-    public class IndexCourseViewModel
+    public class SearchCourseViewModel
     {
         public string Query { get; set; }
         public IEnumerable<Course> Courses { get; set; }
@@ -25,9 +25,9 @@ namespace MySensei.Models
         [Display(Name = "Description")]
         public string Description { get; set; }
 
-        [DataType(DataType.ImageUrl)]
+        [DataType(DataType.Upload)]
         [Display(Name = "Image")]
-        public string ImageUrl { get; set; }
+        public byte[] ImageUrl { get; set; }
 
         [DataType(DataType.Currency)]
         [Display(Name = "Price")]
@@ -41,6 +41,7 @@ namespace MySensei.Models
         [Display(Name = "Title")]
         public string Title { get; set; }
 
+        [Required]
         [DataType(DataType.Text)]
         [Display(Name = "Description")]
         public string Description { get; set; }
