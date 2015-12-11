@@ -99,7 +99,8 @@ namespace MySensei.Controllers
             return View(model);
         }
 
-        [AllowAnonymous]
+        //Anonymous people dont have a User account therefore it throws error
+        //[AllowAnonymous]
         public ActionResult Details(int id)
         {
             var course = MySenseiDb.Courses.Where(x => x.CourseID == id).FirstOrDefault();
