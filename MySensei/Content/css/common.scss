@@ -1,12 +1,9 @@
 ﻿@import url(https://fonts.googleapis.com/css?family=Roboto);
+
 @font-face {
     font-family: 'finger_paint';
     src: url('/Content/font/fingerpaintregular-webfont.eot');
-    src: url('/Content/font/fingerpaintregular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('/Content/font/fingerpaintregular-webfont.woff2') format('woff2'),
-         url('/Content/font/fingerpaintregular-webfont.woff') format('woff'),
-         url('/Content/font/fingerpaintregular-webfont.ttf') format('truetype'),
-         url('/Content/font/fingerpaintregular-webfont.svg#finger_paintregular') format('svg');
+    src: url('/Content/font/fingerpaintregular-webfont.eot?#iefix') format('embedded-opentype'), url('/Content/font/fingerpaintregular-webfont.woff2') format('woff2'), url('/Content/font/fingerpaintregular-webfont.woff') format('woff'), url('/Content/font/fingerpaintregular-webfont.ttf') format('truetype'), url('/Content/font/fingerpaintregular-webfont.svg#finger_paintregular') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -20,38 +17,51 @@ $dh-font: finger_paint, sans-serif; // desktop header font
     background-repeat: no-repeat !important;
     background-position: center !important;
 }
+
 .teal-emp {
     color: #45bab6;
-     text-transform: uppercase;
+    text-transform: uppercase;
 }
 
 .viol-emp {
     color: #414da2;
-     text-transform: uppercase;
+    text-transform: uppercase;
 }
+
 .right {
     float: right;
 }
+
 .left {
     float: left;
-    
 }
 /* general styles*/
-.clear {clear: both;}
-ul, ol {list-style: none; padding: 0;}
+.clear {
+    clear: both;
+}
+
+ul, ol {
+    list-style: none;
+    padding: 0;
+}
+
 body {
     font-family: $p-font;
     font-size: 1em;
 }
+
 a {
     text-decoration: none;
 }
+
 .center {
     text-align: center;
 }
+
 .half {
     width: 48%;
 }
+
 .item > img {
     max-width: 240px;
 }
@@ -59,33 +69,40 @@ a {
 #root-container {
     width: 375px;
 }
+
 header {
     text-align: center;
     padding-bottom: 12px;
     position: relative;
+
     div {
         display: inline-block;
     }
 }
-#nav-profile{
+
+#nav-profile {
     @extend .icon;
     background: url('/Content/gfx/acc-icon.png');
 }
-#logo{
+
+#logo {
     @extend .icon;
     background: url('/Content/gfx/logo.png');
     width: 275px;
     background-size: 180px 45px;
 }
-#mobile-burger{
+
+#mobile-burger {
     @extend .icon;
     background: url('/Content/gfx/mobile-menu.png');
 }
+
 #menu-container {
     display: inline-block;
     width: 45px;
     height: 45px;
 }
+
 #mobile-menu-container {
     position: relative;
 }
@@ -93,23 +110,30 @@ header {
 #mobile-menu {
     position: relative;
     width: 100%;
+
     li {
-        padding-top: 10px;  
+        padding-top: 10px;
         width: 100%;
     }
-    li:hover{
+
+    li:hover {
+        color: white;
+        background: #434da2;
+
+        a {
             color: white;
-            background: #434da2;
-            a {
-                color: white;
-            }
+        }
     }
+
     a {
         color: #434da2;
         font-family: $dh-font;
     }
 }
-#main-menu, #mobile-menu, #user-actions { display: none;  }
+
+#main-menu, #mobile-menu, #user-actions {
+    display: none;
+}
 /* Header Styles End*/
 /* Footer Styles Begin*/
 footer {
@@ -117,6 +141,7 @@ footer {
     color: white;
     width: 100%;
 }
+
 .foot-content-container {
     width: 45%;
     display: inline-block;
@@ -126,22 +151,25 @@ footer {
     margin-top: 10px;
     margin-left: 10px;
 }
-.foot-title {
 
+.foot-title {
 }
+
 #social-icons {
     li {
-    display: inline-block;
-    @extend .icon;
+        display: inline-block;
+        @extend .icon;
     }
+
     #fb {
         background: url('/Content/gfx/fb-icon.png');
     }
 
-#pin {
+    #pin {
         background: url('/Content/gfx/pin-icon.png');
     }
-#twit {
+
+    #twit {
         background: url('/Content/gfx/twit-icon.png');
     }
 }
@@ -150,22 +178,26 @@ footer {
 #body-container {
     width: 100%;
 }
+
 section {
     width: 100%;
 }
+
 #home-cta-bg {
- height: 180px;
+    height: 180px;
     background: url("/Content/gfx/Billed.jpg") no-repeat;
     background-position: -300px -280px;
     color: white;
     font-size: 1.4em;
     margin: 0 auto;
+
     div {
         position: relative;
-    top: 26%;
-    left: 25%;
+        top: 26%;
+        left: 25%;
     }
 }
+
 button, .button {
     width: 120px;
     height: 1.765em;
@@ -175,10 +207,12 @@ button, .button {
     font-family: $dh-font;
     border: none;
 }
+
 #home-item-boxes {
     width: 100%;
     text-align: center;
 }
+
 h1 {
     font-family: $dh-font;
     font-size: 1.6em;
@@ -189,8 +223,9 @@ h2 {
     font-size: 1.3em;
     line-height: 1.1em;
 }
+
 .home-item-image {
-        width: 100%;
+    width: 100%;
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -206,16 +241,19 @@ h2 {
     background-image: url('/Content/gfx/home-fc-icon.png');
     @extend .home-item-image;
 }
+
 #home-item-icon-cc {
     background-image: url('/Content/gfx/home-cc-icon.png');
     @extend .home-item-image;
 }
+
 .form {
     .form-group {
         width: 100%;
         padding-top: 2px;
         text-align: center;
-        input[type=text] ,input[type=password] {
+
+        input[type=text], input[type=password] {
             margin: 0 auto;
             display: block;
         }
@@ -223,17 +261,19 @@ h2 {
 }
 
 .carousel-frame {
-            width     : 100%;            
-            margin    : 0 auto;
-            h1 {
-                text-align: center;
-            }
-             .item {
-    text-align: right;
     width: 100%;
+    margin: 0 auto;
+
+    h1 {
+        text-align: center;
+    }
+
+    .item {
+        text-align: right;
+        width: 100%;
+    }
 }
 
-}
 .owl-dots { // Fix for carousel nav float
     clear: both;
 }
@@ -244,6 +284,7 @@ h2 {
     font-family: $dh-font;
     border: none;
 }
+
 .btn-teal {
     background: #4eba65;
     color: white;
@@ -282,25 +323,22 @@ h2 {
     padding: 10px;
     text-transform: uppercase;
     color: #fff;
-    text-decoration: none; 
+    text-decoration: none;
 }
 
 .tabMeMenu .current a {
     color: black;
 }
+
 .tabContainer {
-    
     border: 1px solid #d4d4d1;
     background-color: #fff;
     float: left;
     margin-bottom: 20px;
     width: auto;
 }
+
 .tab {
     width: 660px;
     padding: 20px;
 }
-
-
-
-
