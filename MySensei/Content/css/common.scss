@@ -342,3 +342,41 @@ h2 {
     width: 660px;
     padding: 20px;
 }
+
+/*Registration Page*/
+/*I wasn't sure about that so instead of breaking login
+    I decided to make reg-
+*/
+.validation-summary-errors{
+    margin:5%;
+    color:red;
+    height:auto;
+}
+
+.reg-form {
+    background-color: white;
+
+    .reg-form-group {
+        width: 100%;
+        padding-top: 2px;
+        text-align: center;
+        /*Here can go more types*/
+        /*input[type=text], input[type=password] {*/
+        .form-control {
+            margin: 10px auto;
+            display: block;
+            width: 90%;
+            border: none;
+            border-bottom: 2px solid #222;
+            color: #47b7b7;
+            font-size: x-large;
+        }
+
+        .button {
+            background-color: #333;
+            width: 90%;
+            font-size:x-large;
+            margin: 10px auto;
+        }
+    }
+}
