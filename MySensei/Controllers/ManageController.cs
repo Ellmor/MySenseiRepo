@@ -331,8 +331,16 @@ namespace MySensei.Controllers
         }
         // GET: /Manage/EditProfile
 
-            public ActionResult EditProfile(int userId)
+        public ActionResult EditProfile(int userId)
         {
+            string aspnetuserid = User.Identity.GetUserId();
+            Entities.User user = MySenseiDb.Users.FirstOrDefault(x => x.AspNetUserId == aspnetuserid);
+            if (user != null)
+            {
+                ViewBag.ProfilePicture = user.ProfilePicture;
+                ViewBag.Email = IdentityDb.Users.FirstOrDefault(x => x.Id == aspnetuserid).Email;
+                ViewBag.Description = user.Description;
+            }
             return View(userId);
         }
         //

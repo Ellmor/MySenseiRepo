@@ -268,6 +268,7 @@
     <Content Include="Content\gfx\course-demo-img.png" />
     <Content Include="Content\gfx\def_user.jpg" />
     <Content Include="Content\gfx\fb-icon.png" />
+    <Content Include="Content\gfx\gear.png" />
     <Content Include="Content\gfx\grabbing.png" />
     <Content Include="Content\gfx\home-ca-icon.png" />
     <Content Include="Content\gfx\home-cc-icon.png" />
@@ -352,12 +353,12 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Service References\Application Insights\ConnectedService.json" />
     <Content Include="Views\Course\Search.cshtml" />
-    <Content Include="Views\Manage\EditProfile.cshtml" />
     <Content Include="Views\Manage\ChangeEmail.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Upload.cshtml" />
     <Content Include="Views\Course\Index.cshtml" />
     <Content Include="Views\Course\Details.cshtml" />
     <Content Include="Views\Course\Create.cshtml" />
+    <Content Include="Views\Manage\EditProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
