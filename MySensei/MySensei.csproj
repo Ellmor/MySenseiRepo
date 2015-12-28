@@ -262,6 +262,8 @@
     </Content>
     <Content Include="Content\css\normalize.css" />
     <Content Include="Content\gfx\AjaxLoader.gif" />
+    <Content Include="Content\gfx\background_image.jpg" />
+    <Content Include="Content\gfx\background_image_blur.jpg" />
     <Content Include="Content\gfx\Billed.jpg" />
     <Content Include="Content\gfx\course-demo-img.png" />
     <Content Include="Content\gfx\def_user.jpg" />
