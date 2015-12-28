@@ -65,10 +65,10 @@ namespace MySensei.Models
 
     public class RegisterViewModel
     {
-        [Required]
-        [DataType(DataType.Text)]
-        [Display(Name = "Full Name")]
-        public string Fullname { get; set; }
+        //[Required]
+        //[DataType(DataType.Text)]
+        //[Display(Name = "Full Name")]
+        //public string Fullname { get; set; }
 
         [Required]
         [EmailAddress]
@@ -97,15 +97,15 @@ namespace MySensei.Models
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
 
-        [Required]
-        [DataType(DataType.Upload)]
-        [Display(Name = "Profile Picture")]
-        public HttpPostedFileBase ProfilePicture { get; set; }
+        //[Required]
+        //[DataType(DataType.Upload)]
+        //[Display(Name = "Profile Picture")]
+        //public HttpPostedFileBase ProfilePicture { get; set; }
 
-        [Required]
-        [DataType(DataType.Text)]
-        [Display(Name = "User Description")]
-        public string Description { get; set; }
+        //[Required]
+        //[DataType(DataType.Text)]
+        //[Display(Name = "User Description")]
+        //public string Description { get; set; }
     }
 
     public class ResetPasswordViewModel

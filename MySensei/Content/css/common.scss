@@ -247,18 +247,19 @@ h2 {
     @extend .home-item-image;
 }
 
-.form {
+/*.form {
     .form-group {
         width: 100%;
         padding-top: 2px;
         text-align: center;
+        background-color:red;
 
         input[type=text], input[type=password] {
             margin: 0 auto;
             display: block;
         }
     }
-}
+}*/
 
 .carousel-frame {
     width: 100%;
@@ -343,20 +344,24 @@ h2 {
     padding: 20px;
 }
 
+.field-validation-error {
+    color:red;
+}
+
 /*Registration Page*/
 /*I wasn't sure about that so instead of breaking login
     I decided to make reg-
 */
-.validation-summary-errors{
-    margin:5%;
-    color:red;
-    height:auto;
+.validation-summary-errors {
+    margin: 5%;
+    color: red;
+    height: auto;
 }
 
-.reg-form {
+.form {
     background-color: white;
 
-    .reg-form-group {
+    .form-group {
         width: 100%;
         padding-top: 2px;
         text-align: center;
@@ -375,8 +380,41 @@ h2 {
         .button {
             background-color: #333;
             width: 90%;
-            font-size:x-large;
+            font-size: x-large;
             margin: 10px auto;
         }
     }
+}
+
+/*Edit Profile Page*/
+.edit_profile {
+    margin: 0 auto;
+    width: 100%;
+
+    a {
+        text-decoration: none;
+        text-indent: -9999px;
+        background-image: url(../gfx/gear.png);
+        background-position: center center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        color: #eee;
+        padding: 2px 6px 2px 6px;
+        border-top: 1px solid #CCCCCC;
+        border-right: 1px solid #333333;
+        border-bottom: 1px solid #333333;
+        border-left: 1px solid #CCCCCC;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
+        margin: 5px 5px;
+        display: inline-block;
+        width: 16px;
+        height: auto;
+    }
+}
+
+.divider {
+    border-bottom: 1px solid #ccc;
+    margin: 20px auto;
 }
