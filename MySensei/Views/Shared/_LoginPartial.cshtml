@@ -8,6 +8,7 @@
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {
         @Html.AntiForgeryToken()
+    }
         <div id="user-actions">
 <br />
             <h2>Hello @User.Identity.GetUserName()!</h2>
@@ -22,17 +23,13 @@
 
             <div id="user-actions-desktop">
                 <ul id="user-action-menu">
-
                     <li>Hello @User.Identity.GetUserName()!</li>
-        <li>
-                        @Html.ActionLink("My Account", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
-        </li>
-
-        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
-    </ul>
+                    <li>@Html.ActionLink("My Account", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })</li>
+                    <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+                </ul>
             </div>
 
-    }
+    
 }
 else
 {

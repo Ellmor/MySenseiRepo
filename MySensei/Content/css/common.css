@@ -63,7 +63,8 @@ a {
 
 header {
   text-align: center;
-  position: relative; }
+  position: relative;
+  z-index: -1; }
   header div {
     display: inline-block; }
 
