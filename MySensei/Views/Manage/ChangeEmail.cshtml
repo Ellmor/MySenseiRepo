@@ -5,7 +5,8 @@
 
 <h2>@ViewBag.Title.</h2>
 
-@using (Html.BeginForm("ChangeEmail", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+<section class="form">
+    @using (Html.BeginForm("ChangeEmail", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     @Html.AntiForgeryToken()
     <h4>Change Email Form</h4>
@@ -23,6 +24,7 @@
         </div>
     </div>
 }
+</section>
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
