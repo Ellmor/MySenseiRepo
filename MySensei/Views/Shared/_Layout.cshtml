@@ -17,21 +17,19 @@
     <script src="@Url.Content("~/Content/js/owl.carousel.min.js")"></script>
     <script src="@Url.Content("~/Content/js/owl.2row.plugin.js")"></script>
     <script src="@Url.Content("~/Content/js/tabMe.js")"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slideout/0.1.11/slideout.min.js"></script>
     @RenderSection("scripts", required: false)
     <meta name="description" content="MySensei Website" />
 </head>
 <body>
-    <div id="root-container">
-        <header>
-            @*<a href="@Url.Action("Register", "Account")">*@
-            <div id="nav-profile">
-                <div id="user-actions">
-                    <!-- BEGIN LOGIN/REGISTER FORM -->
-                    @Html.Partial("_LoginPartial", new MySensei.Models.LoginViewModel())
 
-                    <!-- END USER LOGIN FORM -->
-                </div>
+    <div id="root-container">
+        <header>      
+            @Html.Partial("_LoginPartial", new MySensei.Models.LoginViewModel())
+
+            <div id="nav-profile">
             </div>
+    
             <a href="@Url.Action("Index", "Home")">
                 <div id="logo">
                 </div>
@@ -39,8 +37,8 @@
                 <nav id="menu-container">
                     <ul id="main-menu">
                         <li><a href="@Url.Action("Index", "Home")">Home</a></li>
-                        <li><a href="@Url.Action("Search", "Course")">Join Class</a></li>
                         <li><a href="@Url.Action("Create", "Course")">Create Class</a></li>
+                        <li><a href="@Url.Action("Search", "Course")">Join Class</a></li>
                     </ul>
                     <nav id="mobile-menu-container">
                         <div id="mobile-burger"></div>
@@ -48,8 +46,8 @@
                 </nav>
                 <ul id="mobile-menu">
                     <li><a href="@Url.Action("Index", "Home")">Home</a></li>
-                    <li><a href="@Url.Action("Search", "Course")">Join Class</a></li>
                     <li><a href="@Url.Action("Create", "Course")">Create Class</a></li>
+                    <li><a href="@Url.Action("Search", "Course")">Join Class</a></li>
 </ul>
                 
 </header>
@@ -62,28 +60,42 @@
         <!-- End of RenderBody -->
         <footer>
             <div class="foot-content-container">
-                <div class="foot-title">Address</div>
-                <ul>
-                    <li>Sonderhoj 48</li>
-                    <li>8260 Aarhus</li>
-                    <li>Phone: 95 95 95 95</li>
-                    <li>E-mail: contact@mysensei.dk</li>
-                </ul>
+                <div class="to-top">&nbsp;</div>
+                </div>
+            <div class="foot-content-container">
+                <div>You have a skill you want to share with the world? Create a class and teach people how to do it!</div>
+                
             </div>
             <div class="foot-content-container">
-                <div class="foot-title">Social Media</div>
+                
                 <ul id="social-icons">
                     <li id="fb"><a href="http://facebook.com/" target="_blank">&nbsp;</a></li>
                     <li id="pin"><a href="http://pinterest.com/" target="_blank">&nbsp;</a></li>
                     <li id="twit"><a href="http://twitter.com/" target="_blank">&nbsp;</a></li>
                 </ul>
-                </div>
+            </div>
         </footer>
        
         
         
     </div>
-
+    
     <script src="@Url.Content("~/Content/js/common.js")"></script>
+    <script>
+  var slideout = new Slideout({
+      'panel': document.getElementById('root-container'),
+      'menu': document.getElementById('user-actions'),
+    'padding': 256,
+    'tolerance': 70
+  });
+
+  jQuery('#nav-profile').click(function () {
+      if (jQuery(window).width() < 768) {
+          slideout.toggle();
+      }
+  })
+    </script>
+
+
 </body>
 </html>

@@ -10,12 +10,21 @@
 //Initial Variables
 $p-font: Roboto, sans-serif; // paragraph font
 $dh-font: finger_paint, sans-serif; // desktop header font
+/* Mixin */
+@mixin vertical-align($position: relative) {
+  position: $position;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
 /* Reduntant syles */
 .icon {
     width: 45px;
     height: 45px;
     background-repeat: no-repeat !important;
-    background-position: center !important;
+    background-position: center !important;    
+    background-size: contain !important;
 }
 
 .teal-emp {
@@ -35,6 +44,10 @@ $dh-font: finger_paint, sans-serif; // desktop header font
 .left {
     float: left;
 }
+
+header, footer {
+    background-color: #333333;
+}
 /* general styles*/
 .clear {
     clear: both;
@@ -52,6 +65,7 @@ body {
 
 a {
     text-decoration: none;
+    color: white;
 }
 
 .center {
@@ -72,7 +86,6 @@ a {
 
 header {
     text-align: center;
-    padding-bottom: 12px;
     position: relative;
 
     div {
@@ -102,6 +115,9 @@ header {
     width: 45px;
     height: 45px;
 }
+.user-action-group {
+    display: inline-block;
+}
 
 #mobile-menu-container {
     position: relative;
@@ -117,41 +133,44 @@ header {
     }
 
     li:hover {
-        color: white;
-        background: #434da2;
+        color: #333333;
+        background: white;
 
         a {
-            color: white;
+                color: #333333;
         }
     }
 
     a {
-        color: #434da2;
+        color: white;
         font-family: $dh-font;
     }
 }
 
-#main-menu, #mobile-menu, #user-actions {
+#main-menu, #mobile-menu {
     display: none;
 }
 /* Header Styles End*/
 /* Footer Styles Begin*/
 footer {
-    background: #4eba65;
     color: white;
     width: 100%;
+    .to-top {
+        @extend .icon;
+            background: url("/Content/gfx/to-top.png");
+            width: 100%;
+    height: 80px;
+    }
 }
 
 .foot-content-container {
-    width: 45%;
-    display: inline-block;
+    width: 100%;
     overflow: hidden;
     overflow-wrap: break-word;
-    height: 160px;
-    margin-top: 10px;
-    margin-left: 10px;
+    text-align: center;
+    max-width: 320px;
+    margin: 16px auto;
 }
-
 .foot-title {
 }
 
@@ -191,21 +210,19 @@ section {
     font-size: 1.4em;
     margin: 0 auto;
 
-    div {
-        position: relative;
-        top: 26%;
-        left: 25%;
-    }
+    
 }
 
-button, .button {
+button, .button {   
     width: 120px;
-    height: 1.765em;
-    line-height: 1.2em;
-    background: #434da2;
+    height: 1.5em;
+    line-height: 1.45em;
+    background: #333;
     color: white;
     font-family: $dh-font;
     border: none;
+    text-align: center;
+    margin: 0 auto;
 }
 
 #home-item-boxes {
@@ -247,19 +264,21 @@ h2 {
     @extend .home-item-image;
 }
 
-/*.form {
+.form {
     .form-group {
         width: 100%;
         padding-top: 2px;
         text-align: center;
-        background-color:red;
 
         input[type=text], input[type=password] {
             margin: 0 auto;
             display: block;
         }
     }
-}*/
+}
+#user-actions-desktop {
+    display: none;
+}
 
 .carousel-frame {
     width: 100%;
@@ -279,25 +298,24 @@ h2 {
     clear: both;
 }
 
-.btn-violet {
-    background: #434da2;
-    color: white;
-    font-family: $dh-font;
-    border: none;
-}
-
-.btn-teal {
-    background: #4eba65;
-    color: white;
-    font-family: $dh-font;
-    border: none;
-}
 
 .big-btn {
-    height: 3em;
-    width: 3em;
+    height: 40px;
+    width: 48%;
+    max-width: 240px;
     font-size: 2em;
-    line-height: 2.2em;
+    line-height: 40px;
+    background: #333;
+    color: white;
+    font-family: $dh-font;
+    border: none;    
+    text-indent: 30px;
+}
+.btn-right {
+    text-align: right;
+}
+.btn-left {
+    text-align: left;
 }
 /* For tabMe Plugin */
 .tabMeMenu {
@@ -344,24 +362,20 @@ h2 {
     padding: 20px;
 }
 
-.field-validation-error {
-    color:red;
-}
-
 /*Registration Page*/
 /*I wasn't sure about that so instead of breaking login
     I decided to make reg-
 */
-.validation-summary-errors {
-    margin: 5%;
-    color: red;
-    height: auto;
+.validation-summary-errors{
+    margin:5%;
+    color:red;
+    height:auto;
 }
 
-.form {
+.reg-form {
     background-color: white;
 
-    .form-group {
+    .reg-form-group {
         width: 100%;
         padding-top: 2px;
         text-align: center;
@@ -380,41 +394,50 @@ h2 {
         .button {
             background-color: #333;
             width: 90%;
-            font-size: x-large;
+            font-size:x-large;
             margin: 10px auto;
         }
     }
 }
-
-/*Edit Profile Page*/
-.edit_profile {
-    margin: 0 auto;
-    width: 100%;
-
-    a {
-        text-decoration: none;
-        text-indent: -9999px;
-        background-image: url(../gfx/gear.png);
-        background-position: center center;
-        background-size: contain;
-        background-repeat: no-repeat;
-        color: #eee;
-        padding: 2px 6px 2px 6px;
-        border-top: 1px solid #CCCCCC;
-        border-right: 1px solid #333333;
-        border-bottom: 1px solid #333333;
-        border-left: 1px solid #CCCCCC;
-        -moz-border-radius: 5px;
-        -webkit-border-radius: 5px;
-        border-radius: 5px;
-        margin: 5px 5px;
-        display: inline-block;
-        width: 16px;
-        height: auto;
+#user-action-mobile-menu {
+    li {
+        padding-top: 10px;
     }
+
+}
+#home-cta {
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+    
+    @include vertical-align();
+}
+// Slideout styling
+body {
+  width: 100%;
+  height: 100%;
 }
 
-.divider {
-    border-bottom: 1px solid #ccc;
-    margin: 20px auto;
+.slideout-menu {
+  position: fixed;
+  left: -256px;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 0;
+  width: 256px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  display: none;
+  background: #333;
+  color: white;
+}
+
+.slideout-panel {
+  position: relative;
+  z-index: 1;
+}
+
+.slideout-open .slideout-menu {
+  display: block;
 }

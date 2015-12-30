@@ -4,9 +4,10 @@
             jQuery('#mobile-menu').toggle();
         }
     })
-    jQuery('#nav-profile').click(function () {
-        if (jQuery(window).width() < 768) {
-            jQuery('#user-actions').toggle();
-        }
-    })
+   
+    jQuery(".to-top").click(function () {
+        jQuery('html, body').animate({
+            scrollTop: jQuery("#root-container").offset().top
+        }, 700);
+    });
 });
