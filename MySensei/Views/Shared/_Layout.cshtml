@@ -12,7 +12,6 @@
         <script src="@Url.Content("http://html5shim.googlecode.com/svn/trunk/html5.js")"></script>
         <script src="@Url.Content("http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js")"></script>
     <![endif]-->
-    @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/jquery")
     <script src="@Url.Content("~/Content/js/owl.carousel.min.js")"></script>
     <script src="@Url.Content("~/Content/js/owl.2row.plugin.js")"></script>
@@ -24,8 +23,9 @@
 <body>
 
     <div id="root-container">
+
+        @Html.Partial("_LoginPartial", new MySensei.Models.LoginViewModel())
         <header>      
-            @Html.Partial("_LoginPartial", new MySensei.Models.LoginViewModel())
 
             <div id="nav-profile">
             </div>
@@ -36,7 +36,6 @@
                 </a>
                 <nav id="menu-container">
                     <ul id="main-menu">
-                        <li><a href="@Url.Action("Index", "Home")">Home</a></li>
                         <li><a href="@Url.Action("Create", "Course")">Create Class</a></li>
                         <li><a href="@Url.Action("Search", "Course")">Join Class</a></li>
                     </ul>
@@ -45,7 +44,6 @@
                     </nav>
                 </nav>
                 <ul id="mobile-menu">
-                    <li><a href="@Url.Action("Index", "Home")">Home</a></li>
                     <li><a href="@Url.Action("Create", "Course")">Create Class</a></li>
                     <li><a href="@Url.Action("Search", "Course")">Join Class</a></li>
 </ul>
