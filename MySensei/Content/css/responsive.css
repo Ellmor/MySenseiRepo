@@ -8,21 +8,30 @@
 @media screen and (min-width: 768px) {
   #mobile-menu-container {
     display: none; }
+  #nav-profile {
+    display: none; }
   #home-cta-bg {
     height: 240px; }
   #main-menu {
     display: inline-block; }
     #main-menu li {
-      display: inline-block; }
+      display: inline-block;
+      line-height: 44px;
+      padding-left: 10px; }
   #menu-container {
     float: left;
-    width: calc(50% - 145px); }
-  #nav-profile {
+    width: calc(50% - 145px);
+    font-size: 13px; }
+  #user-actions-desktop {
     float: right;
     width: calc(50% - 145px);
-    background-position: left !important;
     display: block;
-    height: 80px; }
+    color: white;
+    font-size: 13px;
+    height: 45px;
+    line-height: 45px; }
+    #user-actions-desktop li {
+      display: inline-block; }
   #user-actions {
     display: inline-block; }
   #login-form {
@@ -35,6 +44,8 @@
     width: 27%;
     display: inline-block;
     vertical-align: top; }
+    .item-box h1 {
+      height: 3.2em; }
   .owl-item img {
     width: 160px !important; }
   .validation-summary-errors {
@@ -81,6 +92,8 @@
     background-position: center -260px; } }
 
 @media screen and (min-width: 1440px) {
-  #root-container {
-    width: 1152px; } }
+  #menu-container {
+    font-size: 1em; }
+  #user-actions-desktop {
+    font-size: 1em; } }
 
