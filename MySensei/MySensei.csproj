@@ -277,6 +277,7 @@
     <Content Include="Content\gfx\mobile-menu.png" />
     <Content Include="Content\gfx\pin-icon.png" />
     <Content Include="Content\gfx\teacher-demo-img.png" />
+    <Content Include="Content\gfx\to-top.png" />
     <Content Include="Content\gfx\twit-icon.png" />
     <Content Include="Content\js\common.js" />
     <Content Include="Content\js\owl.carousel.min.js" />

@@ -6,12 +6,14 @@
   font-weight: normal;
   font-style: normal; }
 
+/* Mixin */
 /* Reduntant syles */
-.icon, #nav-profile, #logo, #mobile-burger, #social-icons li {
+.icon, #nav-profile, #logo, #mobile-burger, footer .to-top, #social-icons li {
   width: 45px;
   height: 45px;
   background-repeat: no-repeat !important;
-  background-position: center !important; }
+  background-position: center !important;
+  background-size: contain !important; }
 
 .teal-emp {
   color: #45bab6;
@@ -27,6 +29,9 @@
 .left {
   float: left; }
 
+header, footer {
+  background-color: #333333; }
+
 /* general styles*/
 .clear {
   clear: both; }
@@ -40,7 +45,8 @@ body {
   font-size: 1em; }
 
 a {
-  text-decoration: none; }
+  text-decoration: none;
+  color: white; }
 
 .center {
   text-align: center; }
@@ -57,7 +63,6 @@ a {
 
 header {
   text-align: center;
-  padding-bottom: 12px;
   position: relative; }
   header div {
     display: inline-block; }
@@ -78,6 +83,9 @@ header {
   width: 45px;
   height: 45px; }
 
+.user-action-group {
+  display: inline-block; }
+
 #mobile-menu-container {
   position: relative; }
 
@@ -88,32 +96,34 @@ header {
     padding-top: 10px;
     width: 100%; }
   #mobile-menu li:hover {
-    color: white;
-    background: #434da2; }
+    color: #333333;
+    background: white; }
     #mobile-menu li:hover a {
-      color: white; }
+      color: #333333; }
   #mobile-menu a {
-    color: #434da2;
+    color: white;
     font-family: finger_paint, sans-serif; }
 
-#main-menu, #mobile-menu, #user-actions {
+#main-menu, #mobile-menu {
   display: none; }
 
 /* Header Styles End*/
 /* Footer Styles Begin*/
 footer {
-  background: #4eba65;
   color: white;
   width: 100%; }
+  footer .to-top {
+    background: url("/Content/gfx/to-top.png");
+    width: 100%;
+    height: 80px; }
 
 .foot-content-container {
-  width: 45%;
-  display: inline-block;
+  width: 100%;
   overflow: hidden;
   overflow-wrap: break-word;
-  height: 160px;
-  margin-top: 10px;
-  margin-left: 10px; }
+  text-align: center;
+  max-width: 320px;
+  margin: 16px auto; }
 
 #social-icons li {
   display: inline-block; }
@@ -142,19 +152,17 @@ section {
   color: white;
   font-size: 1.4em;
   margin: 0 auto; }
-  #home-cta-bg div {
-    position: relative;
-    top: 26%;
-    left: 25%; }
 
 button, .button, .tabMeMenu li {
   width: 120px;
-  height: 1.765em;
-  line-height: 1.2em;
-  background: #434da2;
+  height: 1.5em;
+  line-height: 1.45em;
+  background: #333;
   color: white;
   font-family: finger_paint, sans-serif;
-  border: none; }
+  border: none;
+  text-align: center;
+  margin: 0 auto; }
 
 #home-item-boxes {
   width: 100%;
@@ -185,19 +193,17 @@ h2 {
 #home-item-icon-cc {
   background-image: url("/Content/gfx/home-cc-icon.png"); }
 
-/*.form {
-    .form-group {
-        width: 100%;
-        padding-top: 2px;
-        text-align: center;
-        background-color:red;
+.form .form-group {
+  width: 100%;
+  padding-top: 2px;
+  text-align: center; }
+  .form .form-group input[type=text], .form .form-group input[type=password] {
+    margin: 0 auto;
+    display: block; }
 
-        input[type=text], input[type=password] {
-            margin: 0 auto;
-            display: block;
-        }
-    }
-}*/
+#user-actions-desktop {
+  display: none; }
+
 .carousel-frame {
   width: 100%;
   margin: 0 auto; }
@@ -210,23 +216,23 @@ h2 {
 .owl-dots {
   clear: both; }
 
-.btn-violet {
-  background: #434da2;
-  color: white;
-  font-family: finger_paint, sans-serif;
-  border: none; }
-
-.btn-teal {
-  background: #4eba65;
-  color: white;
-  font-family: finger_paint, sans-serif;
-  border: none; }
-
 .big-btn {
-  height: 3em;
-  width: 3em;
+  height: 40px;
+  width: 48%;
+  max-width: 240px;
   font-size: 2em;
-  line-height: 2.2em; }
+  line-height: 40px;
+  background: #333;
+  color: white;
+  font-family: finger_paint, sans-serif;
+  border: none;
+  text-indent: 30px; }
+
+.btn-right {
+  text-align: right; }
+
+.btn-left {
+  text-align: left; }
 
 /* For tabMe Plugin */
 .tabMeMenu {
@@ -265,9 +271,6 @@ h2 {
   width: 660px;
   padding: 20px; }
 
-.field-validation-error {
-  color: red; }
-
 /*Registration Page*/
 /*I wasn't sure about that so instead of breaking login
     I decided to make reg-
@@ -277,15 +280,15 @@ h2 {
   color: red;
   height: auto; }
 
-.form {
+.reg-form {
   background-color: white; }
-  .form .form-group {
+  .reg-form .reg-form-group {
     width: 100%;
     padding-top: 2px;
     text-align: center;
     /*Here can go more types*/
     /*input[type=text], input[type=password] {*/ }
-    .form .form-group .form-control {
+    .reg-form .reg-form-group .form-control {
       margin: 10px auto;
       display: block;
       width: 90%;
@@ -293,38 +296,47 @@ h2 {
       border-bottom: 2px solid #222;
       color: #47b7b7;
       font-size: x-large; }
-    .form .form-group .button, .form .form-group .tabMeMenu li, .tabMeMenu .form .form-group li {
+    .reg-form .reg-form-group .button, .reg-form .reg-form-group .tabMeMenu li, .tabMeMenu .reg-form .reg-form-group li {
       background-color: #333;
       width: 90%;
       font-size: x-large;
       margin: 10px auto; }
 
-/*Edit Profile Page*/
-.edit_profile {
-  margin: 0 auto;
-  width: 100%; }
-  .edit_profile a {
-    text-decoration: none;
-    text-indent: -9999px;
-    background-image: url(../gfx/gear.png);
-    background-position: center center;
-    background-size: contain;
-    background-repeat: no-repeat;
-    color: #eee;
-    padding: 2px 6px 2px 6px;
-    border-top: 1px solid #CCCCCC;
-    border-right: 1px solid #333333;
-    border-bottom: 1px solid #333333;
-    border-left: 1px solid #CCCCCC;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-    margin: 5px 5px;
-    display: inline-block;
-    width: 16px;
-    height: auto; }
+#user-action-mobile-menu li {
+  padding-top: 10px; }
 
-.divider {
-  border-bottom: 1px solid #ccc;
-  margin: 20px auto; }
+#home-cta {
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%); }
+
+body {
+  width: 100%;
+  height: 100%; }
+
+.slideout-menu {
+  position: fixed;
+  left: -256px;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 0;
+  width: 256px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  display: none;
+  background: #333;
+  color: white; }
+
+.slideout-panel {
+  position: relative;
+  z-index: 1; }
+
+.slideout-open .slideout-menu {
+  display: block; }
 
