@@ -157,19 +157,15 @@ namespace MySensei.Controllers
         {
             if (ModelState.IsValid)
             {
-                byte[] imgBuffer = null;
-                using (var binaryReader = new BinaryReader(model.ProfilePicture.InputStream))
-                {
-                    imgBuffer = binaryReader.ReadBytes(model.ProfilePicture.ContentLength);
-                }
+              
+                
                 var user = new ApplicationUser { UserName = model.Username, Email = model.Email };
                 var mysenseiuser = new User
                 {
-                    Fullname = model.Fullname,
+                    
                     UserName = model.Username,
-                    AspNetUserId = user.Id,
-                    ProfilePicture = imgBuffer,
-                    Description = model.Description
+                    AspNetUserId = user.Id
+                    
 
                 };
                 var result = await UserManager.CreateAsync(user, model.Password);

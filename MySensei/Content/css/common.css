@@ -275,10 +275,16 @@ h2 {
 /*I wasn't sure about that so instead of breaking login
     I decided to make reg-
 */
-.validation-summary-errors {
-  margin: 5%;
+.validation-errors {
   color: red;
-  height: auto; }
+  font-style: italic;
+  text-align: left;
+  text-indent: 32px; }
+
+.reg-form-helper {
+  font-style: italic;
+  text-align: left;
+  text-indent: 32px; }
 
 .reg-form {
   background-color: white; }

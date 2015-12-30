@@ -3,47 +3,60 @@
 <section id="register-form" class="reg-form">
     @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
+
         @Html.AntiForgeryToken()
-        //Removed that text <h4>Create a new account.</h4>
-
         //We need to updated the Model to get rid of unnecessary messages
-        @Html.ValidationSummary(true);
-
-        @*<div class="reg-form-group"><div>
-                    @Html.TextBoxFor(m => m.Fullname, new { @class = "form-control", placeholder = Html.DisplayNameFor(m => m.Fullname) })
-                </div>
-            </div>*@
         <div class="reg-form-input-wrap">
             <div class="reg-form-group">
                 <div>
                     @Html.TextBoxFor(m => m.Username, new { @class = "form-control", placeholder = Html.DisplayNameFor(m => m.Username) })
+                    <span class="validation-errors">@Html.ValidationMessageFor(m => m.Username)</span>
+                </div>
+                <div class="reg-form-helper">
+                    Username must not contain spaces.
                 </div>
             </div>
             <div class="reg-form-group">
                 <div>
                     @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = Html.DisplayNameFor(m => m.Password) })
+                    <span class="validation-errors">@Html.ValidationMessageFor(m => m.Password)</span>
+                </div>
+                <div class="reg-form-helper">
+                    Password has to be at least 6 characters long.
                 </div>
             </div>
             <div class="reg-form-group">
                 <div>
                     @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", placeholder = Html.DisplayNameFor(m => m.ConfirmPassword) })
+                    <span class="validation-errors"> @Html.ValidationMessageFor(m => m.ConfirmPassword)</span>
                 </div>
+
             </div>
             <div class="reg-form-group">
                 <div>
                     @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = Html.DisplayNameFor(m => m.Email) })
+                    <span class="validation-errors"> @Html.ValidationMessageFor(m => m.Email)</span>
                 </div>
             </div>
             <div class="reg-form-group">
                 <div>
                     @Html.TextBoxFor(m => m.ConfirmEmail, new { @class = "form-control", placeholder = Html.DisplayNameFor(m => m.ConfirmEmail) })
+                    <span class="validation-errors">@Html.ValidationMessageFor(m => m.ConfirmEmail)</span>
                 </div>
             </div>
             <div class="reg-form-group">
-                <div>
-                    <input type="submit" class="button" value="Sign Up" />
+                <div class="validation-errors">
+
+                    @Html.ValidationSummary()
+                    
+                    </div>
                 </div>
-            </div>
-        </div>
-    }
+
+                    <div class="reg-form-group">
+                        <div>
+                            <input type="submit" class="button" value="Sign Up" />
+                        </div>
+                    </div>
+                </div>
+                }
 </section>
