@@ -157,15 +157,16 @@ namespace MySensei.Controllers
         {
             if (ModelState.IsValid)
             {
-              
                 
+                byte[] imgBuffer = System.IO.File.ReadAllBytes(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Content/gfx/default_user.png"));
                 var user = new ApplicationUser { UserName = model.Username, Email = model.Email };
                 var mysenseiuser = new User
                 {
-                    
+
                     UserName = model.Username,
-                    AspNetUserId = user.Id
-                    
+                    AspNetUserId = user.Id,
+                    ProfilePicture = imgBuffer
+
 
                 };
                 var result = await UserManager.CreateAsync(user, model.Password);
