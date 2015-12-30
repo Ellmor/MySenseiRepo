@@ -92,6 +92,8 @@
     background-position: center -260px; } }
 
 @media screen and (min-width: 1440px) {
+  #root-container {
+    width: 1152px; }
   #menu-container {
     font-size: 1em; }
   #user-actions-desktop {
